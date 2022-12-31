@@ -5,46 +5,26 @@ date: "2022-12-31"
 categories: [Theory]
 image: "image.jpg"
 ---
- 
-Compared to c++ ,rust added advantage of memory without using runtime.
-Zero-Cost abstraction =Zero + Cost + Abstaction.
+ ## Abstraction:
+Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model stroustrup 2005.Let's decompose them to explain their properties.
 
-## Abstraction:
- Abstraction are differ at context where they are used:
- In cloud computing each service abstract away hardware,operating system focus on what you want to accomplish.
- Python provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation,
-control focus on ease of use ,prototyping is takes less time.
- Security in cases where we must provide the low level details in the APIs like Layout in rust allocator(The type
-must be aligned multiple of size & power of 2) or Implementing cuda need low level details but nvidia exposes the API
-that never misused in terms of the API design.
-  Source Level Compatability(API)-Standard libaries(C++ templates,itertors) uses a os specific libraries to implement 
-functionality like filesystem,netowrks but at the source level they are identical API but under the hood
-(conditional compilation) they are different .This make code portable ,less maintenance,No need learn new apis for each 
-platform.
- Provide high level (Application)
- Hide the complexity,low level details,develop faster,composing & Gluing together easily.
- A very-high-level language at tempts to present the user with the abstractions
-  (operations, data structures, and control structures) useful to his application area. The user
-  can use these abstractions without being concerned with how they are implemented -- he is only
-  concerned with what they do. He is thus able to ignore details not relevant to his application area,
-  and to concentrate on solving his problem rather than fiddling with the low level details.
-It's not always possible to provide abstraction for all kinds of application.For eg linux kernel uses little bit of assembly 
-in it ,which hard to abstract but use assembly anyway.
+**Zero**:
+> What you do use, you couldn't hand code any better.
 
-Cost:
- Every compuatation we perform have cost ,how much resources(time&space) needed to run a particular kind of application.But 
-how Virtual Machine(GC)-Runtime , expressive(High level) ,easy to learn associated with cost cause maintain the memory also 
-gc itself.
+ It's still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through _GCC or LLVM_ the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run
+ the program.Just because we have lots of memory that does't mean use all of that ,python prefer ease of use ,learn,prototype over runtime performance because of Garbage collector. where as in embedded system memory is measured in Kb rather than GBs,TBs in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.
 
-Zero:
- It's still cost but compared to other high level languages(Python,Java,C#) they have little overhead.
- You can't code any better than this..once c compiler emit the assembly the gcc no longer
-(i.e no runtime) Needed unlike Dynamic PL where the runtime always needed to run program.GC(Garabage Collector) itself
-takes a memory in addition to the Types.That's why manual memory management is efficient but it is easy to make a mistake
-as humans are not machine so it's better to do the job by compiler without using GC ,that's what rust is about.
-Just because we have lots of memory that does't mean use all of that ,python prefer ease of use ,learn,prototype over
-runtime performance,where as in embedded system memory is measured 
-in Kb rather than GBs,TBs in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.
+**Cost**:
+> What you don't use, you don't pay for,
+
+ Every compuatation we perform have cost associated with it ,how much resources(time&space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.
+
+ **Abstraction** are differ at context where they are used:
+ - A very high-level language like python attempts to present the user with the abstractions (data structures, and control structures) useful to his application area. The user  can use these abstractions without being concerned with how they are implemented.He is only concerned with what they do. It's not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly nonthless.
+ - In cloud computing each services abstract away the hardware,platforms to focus on the problem you want to solve ,not how they are implemented.
+ - Python provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation thus lack control over hardware.
+ - Exposing low level details to the end user would mess up the hardware resources if they were using it in appropriately.That's why operting system have kernel.The only way to access harware is through api provided by the kenerl.In this way we never misuse the apis.
+- Source Level Compatability(API)-Standard libaries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,netowrks but at the source level they are identical API but under the hood (conditional compilation) they are different .This make code portable ,less maintenance,No need learn new apis for each platform.
 
 Some languages are used in embedded systems https://www.adacore.com/about-spark,https://dlang.org/,ivorylang.org
 
@@ -57,16 +37,14 @@ CPU Chip Architecture:(Each one have dedicated GPU)
  Risc -v(New opensource Instruction Set Architecture that used by Qualcomm)
 
 Manual memory management is more efficient than the garbage collection but humans are fallible it's really difficult
-write a program correctly without making mistake in large codebase In case of rust it's force you to write correct
+write a program correctly without making mistake in large codebase .In case of rust it's force you to write correct
 (In the sense of reducing severe memory bugs that are common in large  c/c++ code bases).
 performant code as long as unsafe is sound.
 
 Once it compiled there is no cost when running a program i.e no runtime needed but not always where virtual dispatch is
 needed.
 
-We can improve the performance of a program much more efficient if all they are moved to at compile time rather than
-runtime.Like phantom or marker traits do nothing but move the classical concurrency bug that are hard to debug to compile 
-time.
+We can improve the performance of a program efficiently if most of the bugs are moved to at compile time rather than runtime.Like phantom or marker traits do nothing but move the classical concurrency bug that are hard to debug to compile time.
 
 It's fast as the hardware allowed.
 
@@ -118,7 +96,6 @@ already assembly slightly more abstract than the asm.
  OpenGl,IntelOneApi provides abstaction for excuting code on Hetergenous computing no matter which platform you r using.
 
  ## References:
-
  - <a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a> 
 
 - <a href="https://link.springer.com/chapter/10.1007/11535409_1" target="_blank">Abstraction and C++ machine model stroustrup 2005</a>
