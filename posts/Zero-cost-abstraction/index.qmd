@@ -119,6 +119,7 @@ already assembly slightly more abstract than the asm.
 
  ## References:
 
-- [Zero cost abstraction in Rust blog](https://blog.rust-lang.org/2015/05/11/traits.html){:target="_blank"}.
-- [Abstraction and C++ machine model stroustrup 2005](https://link.springer.com/chapter/10.1007/11535409_1){:target="_blank"}.
+ - <a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a> 
+
+- <a href="https://link.springer.com/chapter/10.1007/11535409_1" target="_blank">Abstraction and C++ machine model stroustrup 2005</a>
  
