@@ -143,8 +143,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>## Abstraction: Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model stroustrup 2005.Let’s decompose them to explain their properties.</p>
-<p><strong>Zero</strong>: &gt;What you do use, you couldn’t hand code any better.</p>
+<p>## Abstraction:</p>
+<p>Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model stroustrup 2005.Let’s decompose them to explain their properties.</p>
+<p><strong>Zero</strong>:</p>
+<blockquote class="blockquote">
+<p>What you do use, you couldn’t hand code any better.</p>
+</blockquote>
 <p>It’s still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through <em>GCC or LLVM</em> the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run the program.Just because we have lots of memory that does’t mean use all of that ,python prefer ease of use ,learn,prototype over runtime performance because of Garbage collector. where as in embedded system memory is measured in Kb rather than GBs,TBs in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.</p>
 <p><strong>Cost</strong>:</p>
 <blockquote class="blockquote">
@@ -168,9 +172,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Compile time Errors detetcted at compile i.e your program doesn’t run in a actual os since it doesn’t pass the front end of rust.It’s only generate the assembly once it’s pass the rustc.A program successfully compile but get runtime errors like in c/c++ accessing elements that not part of your data.This is why c/c++,rust are used to develope Oss,Drivers.</p>
 <p>Runtime errors are only caught when we actually running a program.Python doesn’t have compile time erros since python is a interpreter lanaguage so it’s always find a error at runtime which affects the performance .The source code must be present in order to run the program &amp; initiate the python interpreter.Python runtime manage the memory,which os they are running.</p>
 <p>Runtime also differ when talikng about context. Java,python runtime means they have to sit behind the program to run which is slow cause GC. Wasm runtime ,here runtime only need to generate machine specific assembly to run..there is no overhead since it’s already assembly slightly more abstract than the asm. OpenGl,IntelOneApi provides abstaction for excuting code on Hetergenous computing no matter which platform you r using.</p>
-<p>## References: - <a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a></p>
+<p>## References:</p>
 <ul>
-<li><a href="https://link.springer.com/chapter/10.1007/11535409_1" target="_blank">Abstraction and C++ machine model stroustrup 2005</a></li>
+<li><p><a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a></p></li>
+<li><p><a href="https://link.springer.com/chapter/10.1007/11535409_1" target="_blank">Abstraction and C++ machine model stroustrup 2005</a></p></li>
 </ul>
 
 

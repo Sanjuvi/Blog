@@ -6,9 +6,11 @@ categories: [Theory]
 image: "image.jpg"
 ---
  ## Abstraction:
+
 Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model stroustrup 2005.Let's decompose them to explain their properties.
 
 **Zero**:
+
 >What you do use, you couldn't hand code any better.
 
  It's still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through _GCC or LLVM_ the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run
@@ -97,6 +99,7 @@ already assembly slightly more abstract than the asm.
  OpenGl,IntelOneApi provides abstaction for excuting code on Hetergenous computing no matter which platform you r using.
 
  ## References:
+ 
  - <a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a> 
 
 - <a href="https://link.springer.com/chapter/10.1007/11535409_1" target="_blank">Abstraction and C++ machine model stroustrup 2005</a>
