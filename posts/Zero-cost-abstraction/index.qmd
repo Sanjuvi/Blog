@@ -5,14 +5,11 @@ date: "2022-12-31"
 categories: [Theory]
 image: "image.jpg"
 ---
-
-Table of contents:
- # what is zero + Cost + Abstraction
  
 Compared to c++ ,rust added advantage of memory without using runtime.
 Zero-Cost abstraction =Zero + Cost + Abstaction.
 
-Abstraction:
+## Abstraction:
  Abstraction are differ at context where they are used:
  In cloud computing each service abstract away hardware,operating system focus on what you want to accomplish.
  Python provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation,
@@ -120,8 +117,8 @@ Runtime also differ when talikng about context.
 already assembly slightly more abstract than the asm.
  OpenGl,IntelOneApi provides abstaction for excuting code on Hetergenous computing no matter which platform you r using.
 
- References:
+ ### References:
 
-https://blog.rust-lang.org/2015/05/11/traits.html
-Abstraction and C++ machine model stroustrup 2005
+- [Zero cost abstraction in Rust blog](https://blog.rust-lang.org/2015/05/11/traits.html).
+- [Abstraction and C++ machine model stroustrup 2005](https://link.springer.com/chapter/10.1007/11535409_1).
  
