@@ -13,7 +13,7 @@ website:
         href: https://twitter.com/PySanjeevi/
 format:
   html:
-    theme: solar
+    theme: morph
     css: styles.css
 
 
