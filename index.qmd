@@ -1,10 +1,10 @@
 ---
-title: "Blog"
+title: "Home"
 listing:
   contents: posts
   sort: "date desc"
-  type: table
-  categories: true
+  type: grid
+  categories: false
   sort-ui: false
   filter-ui: false
 page-layout: full

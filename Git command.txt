@@ -1,0 +1,4 @@
+git init #To consider as a git repositary
+git add . #To add everything in current directory
+git commit -m "Initial Commit"
+git push Directory_Name 
