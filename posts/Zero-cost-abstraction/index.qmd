@@ -5,7 +5,6 @@ date: "2022-12-31"
 categories: [Theory]
 image: "image.jpg"
 ---
- ##Abstraction:
 
 Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model stroustrup 2005.Let's decompose them to explain their properties.
 
@@ -22,7 +21,7 @@ Zero cost abstraction is a memory model for system programming language that pro
 
  Every compuatation we perform have cost associated with it ,how much resources(time&space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.
 
- **Abstraction** are differ at context where they are used:
+ **Abstraction** :
  - A very high-level language like python attempts to present the user with the abstractions (data structures, and control structures) useful to his application area. The user  can use these abstractions without being concerned with how they are implemented.He is only concerned with what they do. It's not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly nonthless.
  - In cloud computing each services abstract away the hardware,platforms to focus on the problem you want to solve ,not how they are implemented.
  - Python provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation thus lack control over hardware.
@@ -98,8 +97,9 @@ Runtime also differ when talikng about context.
 already assembly slightly more abstract than the asm.
  OpenGl,IntelOneApi provides abstaction for excuting code on Hetergenous computing no matter which platform you r using.
 
- ##References:
-
+ References:
+ ===========
+ 
  - <a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a> 
 
 - <a href="https://link.springer.com/chapter/10.1007/11535409_1" target="_blank">Abstraction and C++ machine model stroustrup 2005</a>
