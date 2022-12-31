@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/Rust PL/index.html",
       "/posts/Zero-cost-abstraction/index.html"
     ]
   }
