@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sanjeevi">
+<meta name="dcterms.date" content="2022-12-31">
+
+<title>Home - Zero Cost Abstraction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Home</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Sanjuvi/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/PySanjeevi/"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Zero Cost Abstraction</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Theory</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Sanjeevi </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 31, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Compared to c++ ,rust added advantage of memory without using runtime. Zero-Cost abstraction =Zero + Cost + Abstaction.</p>
+<section id="abstraction" class="level2">
+<h2 class="anchored" data-anchor-id="abstraction">Abstraction:</h2>
+<p>Abstraction are differ at context where they are used: In cloud computing each service abstract away hardware,operating system focus on what you want to accomplish. Python provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation, control focus on ease of use ,prototyping is takes less time. Security in cases where we must provide the low level details in the APIs like Layout in rust allocator(The type must be aligned multiple of size &amp; power of 2) or Implementing cuda need low level details but nvidia exposes the API that never misused in terms of the API design. Source Level Compatability(API)-Standard libaries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,netowrks but at the source level they are identical API but under the hood (conditional compilation) they are different .This make code portable ,less maintenance,No need learn new apis for each platform. Provide high level (Application) Hide the complexity,low level details,develop faster,composing &amp; Gluing together easily. A very-high-level language at tempts to present the user with the abstractions (operations, data structures, and control structures) useful to his application area. The user can use these abstractions without being concerned with how they are implemented – he is only concerned with what they do. He is thus able to ignore details not relevant to his application area, and to concentrate on solving his problem rather than fiddling with the low level details. It’s not always possible to provide abstraction for all kinds of application.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but use assembly anyway.</p>
+<p>Cost: Every compuatation we perform have cost ,how much resources(time&amp;space) needed to run a particular kind of application.But how Virtual Machine(GC)-Runtime , expressive(High level) ,easy to learn associated with cost cause maintain the memory also gc itself.</p>
+<p>Zero: It’s still cost but compared to other high level languages(Python,Java,C#) they have little overhead. You can’t code any better than this..once c compiler emit the assembly the gcc no longer (i.e no runtime) Needed unlike Dynamic PL where the runtime always needed to run program.GC(Garabage Collector) itself takes a memory in addition to the Types.That’s why manual memory management is efficient but it is easy to make a mistake as humans are not machine so it’s better to do the job by compiler without using GC ,that’s what rust is about. Just because we have lots of memory that does’t mean use all of that ,python prefer ease of use ,learn,prototype over runtime performance,where as in embedded system memory is measured in Kb rather than GBs,TBs in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.</p>
+<p>Some languages are used in embedded systems https://www.adacore.com/about-spark,https://dlang.org/,ivorylang.org</p>
+<p>CPU Chip Architecture:(Each one have dedicated GPU) 86x_64(Intel ,Amd) Arm PowerPC(IBM) Alpha Apple SiliconArm Based(New One) Risc -v(New opensource Instruction Set Architecture that used by Qualcomm)</p>
+<p>Manual memory management is more efficient than the garbage collection but humans are fallible it’s really difficult write a program correctly without making mistake in large codebase In case of rust it’s force you to write correct (In the sense of reducing severe memory bugs that are common in large c/c++ code bases). performant code as long as unsafe is sound.</p>
+<p>Once it compiled there is no cost when running a program i.e no runtime needed but not always where virtual dispatch is needed.</p>
+<p>We can improve the performance of a program much more efficient if all they are moved to at compile time rather than runtime.Like phantom or marker traits do nothing but move the classical concurrency bug that are hard to debug to compile time.</p>
+<p>It’s fast as the hardware allowed.</p>
+<p>There is nothing in C++ or rust that portably expresses the idea of a 2 nd level cache, a memory-mapping unit, ROM, or a special purpose register. Such concepts are hard to abstract.Because some things we need to access low level like linux kernel have little bit assembly in it.</p>
+<p>It’s actually misleading when people say c++ is a platform dependent ,not a cross plaform but java have famous quote that “Write once ,run anywhere”.Lots of the complexity is abstracted away from programmer because at the botttom of the abstraction stack there is no abstraction,we must convert those into machine specific assembly code to run the appliction.Yes Java Runtime converts platform independent byte code into machine specific instruction at the end. The same goes for webassembly runtime but much little overhead than java runtime.</p>
+<p>The lowest level abstraction in compute stack is Assembly provided by each chip vendors(Amd,intel,risc,etc..). So compared to assembly c provide much high level abstraction since c is called “Portable assembly” due to GCC compiler.</p>
+<p>This is the reason why c/c++/rust used to write operating system ,kernel,boot loader where there is no operating system, database &amp; many low level stuffs that get most out of available hardware.</p>
+<p>Boot Loader needs be run indepedent of the OS,Compiler i.e it’s not depend on the OS librararies to run.</p>
+<p>We are saved by compiler &amp; language designer which leads to lot’s development in tech.</p>
+<p>Abstraction synonyms with Code reuse(Macros,traits,opensource libraries),Expressive(Chaining), Less code(Generics-), Code Maintenance(API compatatbiltiy)-We can same libraries name on all 3 os but under the hood each one call os specific libraries,system call.Std library. Security where we can’t excute aribirary code.We have to request any resources from kernel, not directly from the hardware in that sense Os is abstraction.It’s dangerous to expose low level details to user :They may use wrong or crash the system. That’s why embedded systems are in demand.For Eg: When calling files handles from any programming language on linux it is invoked by libc. Safety at each of the stack(Taits Bounds,restriction by the safe rust).</p>
+<p>Compile time Errors detetcted at compile i.e your program doesn’t run in a actual os since it doesn’t pass the front end of rust.It’s only generate the assembly once it’s pass the rustc.A program successfully compile but get runtime errors like in c/c++ accessing elements that not part of your data.This is why c/c++,rust are used to develope Oss,Drivers.</p>
+<p>Runtime errors are only caught when we actually running a program.Python doesn’t have compile time erros since python is a interpreter lanaguage so it’s always find a error at runtime which affects the performance .The source code must be present in order to run the program &amp; initiate the python interpreter.Python runtime manage the memory,which os they are running.</p>
+<p>Runtime also differ when talikng about context. Java,python runtime means they have to sit behind the program to run which is slow cause GC. Wasm runtime ,here runtime only need to generate machine specific assembly to run..there is no overhead since it’s already assembly slightly more abstract than the asm. OpenGl,IntelOneApi provides abstaction for excuting code on Hetergenous computing no matter which platform you r using.</p>
+<p>### References:</p>
+<ul>
+<li><a href="https://blog.rust-lang.org/2015/05/11/traits.html">Zero cost abstraction in Rust blog</a>.</li>
+<li><a href="https://link.springer.com/chapter/10.1007/11535409_1">Abstraction and C++ machine model stroustrup 2005</a>.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
