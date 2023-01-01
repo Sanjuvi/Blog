@@ -8,7 +8,7 @@ image: "image.svg"
 Rust is a emerging new system programming language.But what is system programming language?
 A system programming lanaguage is like any other programming langauge except it provides full control over hardware ,manual memory management ,abstraction without overhead to implement system level softwares,Run on bare metal(Without any operating system).So why another system programming langauge since we have c/c++.
 
-**What other tells about rust**
+**What others tells about rust**
 Linus Torvalds, the creator of Linux,consider a rust as second langauge for the kernel development.
 
 The quotes below from Microsoft Azure CTO Mark Russinovich in Twitter.
