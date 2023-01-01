@@ -14,18 +14,11 @@
     "text": "Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model.Let’s decompose them to explain their properties.\nZero:\nIt’s still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through GCC or LLVM the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run the program.Just because we have lots of memory that does’t mean use all of that,that’s what garbage collector do.Where as in embedded system memory is measured in Kb rather than GBs,TBs in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It’s fast as the hardware allowed.\nCost:\nEvery compuatation we perform have cost associated with it ,how much resources(time&space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.\nAbstraction :"
   },
   {
-    "objectID": "posts/Zero-cost-abstraction/index.html#references",
-    "href": "posts/Zero-cost-abstraction/index.html#references",
+    "objectID": "posts/Zero-cost-abstraction/index.html#other-languages-that-are-used-in-embedded-systems",
+    "href": "posts/Zero-cost-abstraction/index.html#other-languages-that-are-used-in-embedded-systems",
     "title": "Zero Cost Abstraction",
-    "section": "References",
-    "text": "References\n\nZero cost abstraction in Rust blog\nAbstraction and C++ machine model stroustrup 2005"
-  },
-  {
-    "objectID": "posts/Zero-cost-abstraction/index.html#other-languages-are-used-in-embedded-systems",
-    "href": "posts/Zero-cost-abstraction/index.html#other-languages-are-used-in-embedded-systems",
-    "title": "Zero Cost Abstraction",
-    "section": "Other languages are used in embedded systems:",
-    "text": "Other languages are used in embedded systems:\nAda D Ivory"
+    "section": "Other languages that are used in embedded systems:",
+    "text": "Other languages that are used in embedded systems:\nAda D Ivory"
   },
   {
     "objectID": "posts/Zero-cost-abstraction/index.html#cpu-chip-architecture",
@@ -35,10 +28,10 @@
     "text": "CPU Chip Architecture\nEach cpu architecture have different assembly instruction,some are backwards compatible others don’t.Compiler is complex piece of software that does the heavy work of converting high level concepts to architecture specific assmebly.Below are most used cpu architectures and their 32 and 64 bit variants.\n\nIntel\nAmd\nArm\nPowerPC(IBM)\nAlpha\nApple Silicon(Only available in Apple products)\nRisc -v(Opensource Instruction Set Architecture(ISA)))\n\nIt’s actually misleading when people say c++ is a platform dependent ,but java have famous quote that “Write once ,run anywhere”.Lots of the complexity is abstracted away from programmer by the java runtime libararies.Java Runtime converts platform independent byte code into machine specific instruction at runtime.\nIf Manual memory management is more efficient then why we have GCed language in the first place.Sotware runs the world,it is important to write software that are memory safety since writing memory safety sotwares in system programming lanaguge lead to vulnerability because of way the language is designed.Lots of series vulnerability found in c/c++ code bases.GCed lanaguge prefer safety over runtime performance.But rust came to break that tradeoff as we will see in next article."
   },
   {
-    "objectID": "posts/Zero-cost-abstraction/index.html#other-languages-that-are-used-in-embedded-systems",
-    "href": "posts/Zero-cost-abstraction/index.html#other-languages-that-are-used-in-embedded-systems",
+    "objectID": "posts/Zero-cost-abstraction/index.html#references",
+    "href": "posts/Zero-cost-abstraction/index.html#references",
     "title": "Zero Cost Abstraction",
-    "section": "Other languages that are used in embedded systems:",
-    "text": "Other languages that are used in embedded systems:\nAda D Ivory"
+    "section": "References",
+    "text": "References\n\nZero cost abstraction in Rust blog\nAbstraction and C++ machine model stroustrup 2005"
   }
 ]

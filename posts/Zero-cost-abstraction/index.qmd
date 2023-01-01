@@ -65,7 +65,7 @@ No need to worry about memory related bugs at runtime(though not all bugs are ad
 # Pros of Manual Memory Management
 Predictable performance of memory allocation and deallocation thus efficient use of resources.
  
-A program performance can be improved if most of the bugs are moved to compile time rather than runtime.For example *safe* **rust** refuse to compile if the program has dangling pointer.The fourth article explains the classical memory errors that plaque the c/c++ for a decades.
+A program performance can be improved if most of the bugs are moved to compile time rather than runtime.For example *safe* **rust** refuse to compile if the program has dangling pointer.
 
 I hope you understand the reason why c/c++ used to write operating system,kernel,boot loader,networking,file systems,database and many low level stuffs that get most out of available hardware without imposing any additional overhead even though they are unsafe.
 
