@@ -12,27 +12,26 @@ Zero cost abstraction is a memory model for system programming language that pro
 
 >What you do use, you couldn't hand code any better.
 
- It's still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through _GCC or LLVM_ the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run
- the program.Just because we have lots of memory that does't mean use all of that,that's what garbage collector do.Where as in embedded system memory is measured in KiloBytes rather than GigaBytes,TeraBytes in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It's fast as the hardware allowed.
+ It's still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through _GCC or LLVM_ the compiler no longer needed which means we can distribute executable files without end user installed c/c++.Where as in dynamic programming languages the source code and the language runtime must always sit behind to run the program.Just because we have lots of memory that doesn't mean use all of that,that's what garbage collector do.Where as in embedded system memory is measured in KiloBytes rather than GigaBytes,TeraBytes in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It's fast as the hardware allowed.
 
 **Cost**:
 
 >What you don't use, you don't pay for.
 
- Every compuatation we perform have cost associated with it ,how much resources(time and space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.
+ Every computation we perform have cost associated with it ,how much resources(time and space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.
 
  **Abstraction** :
 
- - Modularity : Large code bases must be organized in order reason about,reused later.Adding new feature doen't affect the rest of code base.Aid in good api design. 
- It's not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly nonthless.
+ - Modularity : Large code bases must be organized in order reason about,reused later.Adding new feature doesn't affect the rest of code base.Aid in good api design. 
+ It's not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly.
 
  - Less code maintenance.Rust features include Enums to write your intention compactly,Derive Macros to generate boilerplate code at compile rime,Generics to reduce the code lines but also the safety checking along the way.
 
- - Python ,Js provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation thus lack control over hardware instead prefer ease of use,learn and prototype over runtime performance.
+ - Python ,Js provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memory allocation thus lack control over hardware instead prefer ease of use,learn and prototype over runtime performance.
 
  - Exposing low level details to the end user would mess up the hardware resources if they were using it in appropriately.For example in low level the alignment of bit must be multiple of size of the data type and power of two.If we design a api in way that refuse to compile if violating the requirements.In this way abstraction provides security.The same true for kernels,CUDA,Operation on a type.
 
-- Source Level Compatability and portability(API)-Standard libaries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,netowrks but at the source level they are identical API but under the hood (conditional compilation) they are different.This make code portable ,less maintenance,No need learn new apis for each platform except architecture specific features.
+- Source Level compatibility and portability(API)-Standard libraries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,networks but at the source level they are identical API but under the hood (conditional compilation) they are different.This make code portable ,less maintenance,No need learn new apis for each platform except architecture specific features.
 
 - Least level of abstraction provided by Assembly. 
 
@@ -43,7 +42,7 @@ Zero cost abstraction is a memory model for system programming language that pro
 [Ivory](https://ivorylang.org)
 
 ## CPU Chip Architecture
- Each cpu architecture have different assembly instruction,some are backwards compatible others don't.Compiler is complex piece of software that does the heavy work of converting high level concepts to architecture specific assmebly.Below are most used cpu architectures and their 32 and 64 bit variants.
+ Each cpu architecture have different assembly instruction,some are backwards compatible others don't.Compiler is complex piece of software that does the heavy work of converting high level concepts to architecture specific assembly.Below are most used cpu architectures and their 32 and 64 bit variants.
 
  - Intel
  - Amd
@@ -54,13 +53,13 @@ Zero cost abstraction is a memory model for system programming language that pro
  - Risc -v(Opensource Instruction Set Architecture(ISA)))
 
  It's actually misleading when people say c++ is a platform dependent ,but java have famous quote that
-"Write once ,run anywhere".Lots of the complexity is abstracted away from programmer by the java runtime libararies.Java Runtime converts platform independent byte code into machine specific instruction at runtime.
+"Write once ,run anywhere".Lot of the complexity is abstracted away from programmer by the java runtime libraries.Java Runtime converts platform independent byte code into machine specific instruction at runtime.
 
 
-If Manual memory management is more efficient then why we have GCed language in the first place.Sotware runs the world,it is important to write software that are memory safety since writing memory safety sotwares in system programming lanaguge lead to vulnerability because of way the language is designed.Lots of series vulnerability found in c/c++ code bases.GCed lanaguge prefer safety over runtime performance.But **rust** came to break that tradeoff as we will see in next article. 
+If Manual memory management is more efficient then why we have GCed language in the first place.Software runs the world,it is important to write software that are memory safety since writing memory safety sotware in system programming lanaguge lead to vulnerability because of way the language is designed.Lots of series vulnerability found in c/c++ code bases.GCed language prefer safety over runtime performance.But **rust** came to break that tradeoff as we will see in next article. 
 
 # Pros of managed or GCed language
-No need to worry about memory related bugs at runtime(though not all bugs are addressed by GC).Instead focus on problem you want to solve rather than weired problems.
+No need to worry about memory related bugs at runtime(though not all bugs are addressed by GC).Instead focus on problem you want to solve rather than weird problems.
 
 # Pros of Manual Memory Management
 Predictable performance of memory allocation and deallocation thus efficient use of resources.

@@ -148,19 +148,19 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>What you do use, you couldn’t hand code any better.</p>
 </blockquote>
-<p>It’s still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through <em>GCC or LLVM</em> the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run the program.Just because we have lots of memory that does’t mean use all of that,that’s what garbage collector do.Where as in embedded system memory is measured in KiloBytes rather than GigaBytes,TeraBytes in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It’s fast as the hardware allowed.</p>
+<p>It’s still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through <em>GCC or LLVM</em> the compiler no longer needed which means we can distribute executable files without end user installed c/c++.Where as in dynamic programming languages the source code and the language runtime must always sit behind to run the program.Just because we have lots of memory that doesn’t mean use all of that,that’s what garbage collector do.Where as in embedded system memory is measured in KiloBytes rather than GigaBytes,TeraBytes in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It’s fast as the hardware allowed.</p>
 <p><strong>Cost</strong>:</p>
 <blockquote class="blockquote">
 <p>What you don’t use, you don’t pay for.</p>
 </blockquote>
-<p>Every compuatation we perform have cost associated with it ,how much resources(time and space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.</p>
+<p>Every computation we perform have cost associated with it ,how much resources(time and space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.</p>
 <p><strong>Abstraction</strong> :</p>
 <ul>
-<li><p>Modularity : Large code bases must be organized in order reason about,reused later.Adding new feature doen’t affect the rest of code base.Aid in good api design. It’s not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly nonthless.</p></li>
+<li><p>Modularity : Large code bases must be organized in order reason about,reused later.Adding new feature doesn’t affect the rest of code base.Aid in good api design. It’s not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly.</p></li>
 <li><p>Less code maintenance.Rust features include Enums to write your intention compactly,Derive Macros to generate boilerplate code at compile rime,Generics to reduce the code lines but also the safety checking along the way.</p></li>
-<li><p>Python ,Js provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation thus lack control over hardware instead prefer ease of use,learn and prototype over runtime performance.</p></li>
+<li><p>Python ,Js provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memory allocation thus lack control over hardware instead prefer ease of use,learn and prototype over runtime performance.</p></li>
 <li><p>Exposing low level details to the end user would mess up the hardware resources if they were using it in appropriately.For example in low level the alignment of bit must be multiple of size of the data type and power of two.If we design a api in way that refuse to compile if violating the requirements.In this way abstraction provides security.The same true for kernels,CUDA,Operation on a type.</p></li>
-<li><p>Source Level Compatability and portability(API)-Standard libaries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,netowrks but at the source level they are identical API but under the hood (conditional compilation) they are different.This make code portable ,less maintenance,No need learn new apis for each platform except architecture specific features.</p></li>
+<li><p>Source Level compatibility and portability(API)-Standard libraries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,networks but at the source level they are identical API but under the hood (conditional compilation) they are different.This make code portable ,less maintenance,No need learn new apis for each platform except architecture specific features.</p></li>
 <li><p>Least level of abstraction provided by Assembly.</p></li>
 </ul>
 <section id="other-languages-that-are-used-in-embedded-systems" class="level2">
@@ -169,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="cpu-chip-architecture" class="level2">
 <h2 class="anchored" data-anchor-id="cpu-chip-architecture">CPU Chip Architecture</h2>
-<p>Each cpu architecture have different assembly instruction,some are backwards compatible others don’t.Compiler is complex piece of software that does the heavy work of converting high level concepts to architecture specific assmebly.Below are most used cpu architectures and their 32 and 64 bit variants.</p>
+<p>Each cpu architecture have different assembly instruction,some are backwards compatible others don’t.Compiler is complex piece of software that does the heavy work of converting high level concepts to architecture specific assembly.Below are most used cpu architectures and their 32 and 64 bit variants.</p>
 <ul>
 <li>Intel</li>
 <li>Amd</li>
@@ -179,12 +179,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Apple Silicon(Only available in Apple products)</li>
 <li>Risc -v(Opensource Instruction Set Architecture(ISA)))</li>
 </ul>
-<p>It’s actually misleading when people say c++ is a platform dependent ,but java have famous quote that “Write once ,run anywhere”.Lots of the complexity is abstracted away from programmer by the java runtime libararies.Java Runtime converts platform independent byte code into machine specific instruction at runtime.</p>
-<p>If Manual memory management is more efficient then why we have GCed language in the first place.Sotware runs the world,it is important to write software that are memory safety since writing memory safety sotwares in system programming lanaguge lead to vulnerability because of way the language is designed.Lots of series vulnerability found in c/c++ code bases.GCed lanaguge prefer safety over runtime performance.But <strong>rust</strong> came to break that tradeoff as we will see in next article.</p>
+<p>It’s actually misleading when people say c++ is a platform dependent ,but java have famous quote that “Write once ,run anywhere”.Lot of the complexity is abstracted away from programmer by the java runtime libraries.Java Runtime converts platform independent byte code into machine specific instruction at runtime.</p>
+<p>If Manual memory management is more efficient then why we have GCed language in the first place.Software runs the world,it is important to write software that are memory safety since writing memory safety sotware in system programming lanaguge lead to vulnerability because of way the language is designed.Lots of series vulnerability found in c/c++ code bases.GCed language prefer safety over runtime performance.But <strong>rust</strong> came to break that tradeoff as we will see in next article.</p>
 </section>
 <section id="pros-of-managed-or-gced-language" class="level1">
 <h1>Pros of managed or GCed language</h1>
-<p>No need to worry about memory related bugs at runtime(though not all bugs are addressed by GC).Instead focus on problem you want to solve rather than weired problems.</p>
+<p>No need to worry about memory related bugs at runtime(though not all bugs are addressed by GC).Instead focus on problem you want to solve rather than weird problems.</p>
 </section>
 <section id="pros-of-manual-memory-management" class="level1">
 <h1>Pros of Manual Memory Management</h1>
