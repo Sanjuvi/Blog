@@ -6,101 +6,70 @@ categories: [Theory]
 image: "image.jpg"
 ---
 
-Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model stroustrup 2005.Let's decompose them to explain their properties.
+Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model.Let's decompose them to explain their properties.
 
 **Zero**:
 
 >What you do use, you couldn't hand code any better.
 
  It's still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through _GCC or LLVM_ the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run
- the program.Just because we have lots of memory that does't mean use all of that ,python prefer ease of use ,learn,prototype over runtime performance because of Garbage collector. where as in embedded system memory is measured in Kb rather than GBs,TBs in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.
+ the program.Just because we have lots of memory that does't mean use all of that,that's what garbage collector do.Where as in embedded system memory is measured in Kb rather than GBs,TBs in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It's fast as the hardware allowed.
 
 **Cost**:
 
->What you don't use, you don't pay for,
+>What you don't use, you don't pay for.
 
  Every compuatation we perform have cost associated with it ,how much resources(time&space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.
 
  **Abstraction** :
- - A very high-level language like python attempts to present the user with the abstractions (data structures, and control structures) useful to his application area. The user  can use these abstractions without being concerned with how they are implemented.He is only concerned with what they do. It's not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly nonthless.
- - In cloud computing each services abstract away the hardware,platforms to focus on the problem you want to solve ,not how they are implemented.
- - Python provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation thus lack control over hardware.
- - Exposing low level details to the end user would mess up the hardware resources if they were using it in appropriately.That's why operting system have kernel.The only way to access harware is through api provided by the kenerl.In this way we never misuse the apis.
-- Source Level Compatability(API)-Standard libaries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,netowrks but at the source level they are identical API but under the hood (conditional compilation) they are different .This make code portable ,less maintenance,No need learn new apis for each platform.
 
-Some languages are used in embedded systems https://www.adacore.com/about-spark,https://dlang.org/,ivorylang.org
+ - Modularity : Large code bases must be organized in order reason about,reused later.Adding new feature doen't affect the rest of code base.Aid in good api design. 
+ It's not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly nonthless.
 
-CPU Chip Architecture:(Each one have dedicated GPU)
- 86x_64(Intel ,Amd)
- Arm
- PowerPC(IBM)
- Alpha
- Apple SiliconArm Based(New One)
- Risc -v(New opensource Instruction Set Architecture that used by Qualcomm)
+ - Less code maintenance.Rust features include Enums to write your intention compactly,Derive Macros to generate boilerplate code at compile rime,Generics to reduce the code lines but also the safety checking along the way.
 
-Manual memory management is more efficient than the garbage collection but humans are fallible it's really difficult
-write a program correctly without making mistake in large codebase .In case of rust it's force you to write correct
-(In the sense of reducing severe memory bugs that are common in large  c/c++ code bases).
-performant code as long as unsafe is sound.
+ - Python ,Js provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation thus lack control over hardware instead prefer ease of use,learn and prototype over runtime performance.
 
-Once it compiled there is no cost when running a program i.e no runtime needed but not always where virtual dispatch is
-needed.
+ - Exposing low level details to the end user would mess up the hardware resources if they were using it in appropriately.For example in low level the alignment of bit must be multiple of size of the data type and power of two.If we design a api in way that refuse to compile if violating the requirements.In this way abstraction provides security.The same true for kernels,CUDA,Operation on a type.
 
-We can improve the performance of a program efficiently if most of the bugs are moved to at compile time rather than runtime.Like phantom or marker traits do nothing but move the classical concurrency bug that are hard to debug to compile time.
+- Source Level Compatability and portability(API)-Standard libaries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,netowrks but at the source level they are identical API but under the hood (conditional compilation) they are different.This make code portable ,less maintenance,No need learn new apis for each platform except architecture specific features.
 
-It's fast as the hardware allowed.
+- Least level of abstraction provided by Assembly. 
 
-There is nothing in C++ or rust that portably expresses the idea of a 2 nd level cache,
-a memory-mapping unit, ROM, or a special purpose register. Such concepts are hard
-to abstract.Because some things we need to access low level like linux kernel have little bit assembly in it.
+## Other languages that are used in embedded systems:
 
-It's actually misleading when people say c++ is a platform dependent ,not a cross plaform but java have famous quote that
-"Write once ,run anywhere".Lots of the complexity is abstracted away from programmer because at the botttom of the
-abstraction stack there is no abstraction,we must convert those into machine specific assembly code to run the
-appliction.Yes Java Runtime converts platform independent byte code into machine specific instruction at the end.
-The same goes for webassembly runtime but much little overhead than java runtime.
+[Ada](https://www.adacore.com/about-spark)
+[D](https://dlang.org/)
+[Ivory](https://ivorylang.org)
 
-The lowest level abstraction in compute stack is Assembly provided by each chip vendors(Amd,intel,risc,etc..).
-So compared to assembly c provide much high level abstraction since c is called "Portable assembly" due to GCC compiler.
+## CPU Chip Architecture
+ Each cpu architecture have different assembly instruction,some are backwards compatible others don't.Compiler is complex piece of software that does the heavy work of converting high level concepts to architecture specific assmebly.Below are most used cpu architectures and their 32 and 64 bit variants.
 
-This is the reason why c/c++/rust used to write operating system ,kernel,boot loader where there is no operating system,
-database & many low level stuffs that get most out of available hardware.
+ - Intel
+ - Amd
+ - Arm
+ - PowerPC(IBM)
+ - Alpha
+ - Apple Silicon(Only available in Apple products)
+ - Risc -v(Opensource Instruction Set Architecture(ISA)))
 
-Boot Loader needs be run indepedent of the OS,Compiler i.e it's not depend on the OS librararies to run.
-
-We are saved by compiler & language designer which leads to lot's development in tech.
-
-Abstraction synonyms with Code reuse(Macros,traits,opensource libraries),Expressive(Chaining),
- Less code(Generics-),
- Code Maintenance(API compatatbiltiy)-We can same libraries name on all 3 os but under the hood each one call os specific
-libraries,system call.Std library.
- Security where we can't excute aribirary code.We have to request any resources from kernel, not directly from the hardware
-in that sense Os is abstraction.It's dangerous to expose low level details to user :They may use wrong or crash the system.
-That's why embedded systems are in demand.For Eg: When calling files handles from any programming language on linux it 
-is invoked by libc.
- Safety at each of the stack(Taits Bounds,restriction by the safe rust).
+ It's actually misleading when people say c++ is a platform dependent ,but java have famous quote that
+"Write once ,run anywhere".Lots of the complexity is abstracted away from programmer by the java runtime libararies.Java Runtime converts platform independent byte code into machine specific instruction at runtime.
 
 
+If Manual memory management is more efficient then why we have GCed language in the first place.Sotware runs the world,it is important to write software that are memory safety since writing memory safety sotwares in system programming lanaguge lead to vulnerability because of way the language is designed.Lots of series vulnerability found in c/c++ code bases.GCed lanaguge prefer safety over runtime performance.But **rust** came to break that tradeoff as we will see in next article. 
 
-Compile time Errors detetcted at compile i.e your program doesn't run in a actual os since it doesn't pass the front end
-of rust.It's only generate the assembly once it's pass the rustc.A program successfully compile but get runtime errors
-like in c/c++ accessing elements that not part of your data.This is why c/c++,rust are used to develope Oss,Drivers. 
+# Pros of managed or GCed language
+No need to worry about memory related bugs at runtime(though not all bugs are addressed by GC).Instead focus on problem you want to solve rather than weired problems.
 
-Runtime errors are only caught when we actually running a program.Python doesn't have compile time erros since python
-is a interpreter lanaguage so it's always find a error at runtime which affects the performance .The source code must
-be present in order to run the program & initiate the python interpreter.Python runtime manage the memory,which os they
-are running.
+# Pros of Manual Memory Management
+Predictable performance of memory allocation and deallocation thus efficient use of resources.
  
-Runtime also differ when talikng about context.
- Java,python runtime means they have to sit behind the program to run which is slow cause GC.
- Wasm runtime ,here runtime only need to generate machine specific assembly to run..there is no overhead since it's 
-already assembly slightly more abstract than the asm.
- OpenGl,IntelOneApi provides abstaction for excuting code on Hetergenous computing no matter which platform you r using.
+A program performance can be improved if most of the bugs are moved to compile time rather than runtime.For example *safe* **rust** refuse to compile if the program has dangling pointer.The fourth article explains the classical memory errors that plaque the c/c++ for a decades.
 
- References:
- ===========
- 
+I hope you understand the reason why c/c++ used to write operating system,kernel,boot loader,networking,file systems,database and many low level stuffs that get most out of available hardware without imposing any additional overhead even though they are unsafe.
+
+## References
  - <a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a> 
-
 - <a href="https://link.springer.com/chapter/10.1007/11535409_1" target="_blank">Abstraction and C++ machine model stroustrup 2005</a>
  

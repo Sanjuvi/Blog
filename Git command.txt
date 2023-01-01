@@ -4,3 +4,9 @@ git commit -m "Initial Commit"
 git push Directory_Name 
 
 quarto render
+quarto preview # checking locally without publishing to Github.
+
+**bold text**
+- doted list
+[]()
+*Italic*
