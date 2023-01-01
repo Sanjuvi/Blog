@@ -34,24 +34,27 @@ now look at the feature ,the language provide.
  Module system to manage large programs. 
 *Rust playground* for playing with the lanaguage instantly in the web browser without installing rust on local.
 
-Modern language Features:These features are already implemented in dynamic programmin Language but they are not ZCA.
- Generics Reduce code duplication.Supports static dispatch and virtual dispatch.
- Traits are like Interface in Java but more flexibilty,Protocols in Swift,Type Classes in Haskell provide abstraction,safety.
- Pattern Matching like swith but more powerful can be used wide variety of pattern than 'if' expression.Rust is expression oriented programming langauge.
- Enum -A user defined data type ,can contains data,more compact.Used with pattern matching cause they are like unions only field at a time is used not variants.
- Higienic Macros-To generate boilerplate rust code for you ,expanded when compiling so you code looks clean.
- Closure-You can do intersting thing with them.
- Robust error handling strategies through Result & Option Type,using from ,into traits through ? operator.
- Type aliasing.
+Rust is a modern system programming language in addition provied memory safety.Functional programming features
+are include
+Generics Reduce code duplication.Supports static dispatch and virtual dispatch.
+Traits are like Interface in Java but more flexibilty,Protocols in Swift,Type Classes in Haskell provide
+ abstraction,safety.
+Pattern Matching like swith but more powerful can be used wide variety of pattern than 'if' expression.Rust
+ is expression oriented programming langauge.
+Enum -A user defined data type ,can contains data,more compact.Used with pattern matching cause they are like
+ unions only field at a time is used not variants.
+Higienic Macros-To generate boilerplate rust code for you ,expanded when compiling so you code looks clean.
+Closure-An annonyms function.You can do intersting thing with them.
+Robust error handling strategies through Result & Option Type,using from ,into traits through ? operator.You never forgot to check error as the compiler force you to do it ,the exhaustive nature of pattern matching.
+Type aliasing.
 Boxing.The syntax are clearer than the c,c++ counterpart.what's
 more the rust is most loved PL for developers for a 5 years as survayed by anual stackoverflow.
 
 
-Communtiy -Rust foundation(Feature proof Language).Bighands-Mozila,Google,Fb,Amazon,Shopyfy.
-
+Rust foundation is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future proof language.
+Rust conference videos are uploaded in youtube.
  
- API Documentation of dependency if available thorugh crates.io -No internet required once it's build by "cargo build"
-command.
+ API Documentation of dependency if available thorugh crates.io -No internet required once it's build by "cargo build" command.
 
  Cargo SemVer(Semantic Version)-Only update the minor,pathces not the major version unless we specify explicitly what we
 are doing.
@@ -60,19 +63,12 @@ are doing.
 Operator overloading through Traits.DerefMut,Ops-implement the custom behavior to your type like indexing,compound assignment
 operator or method call.It's feel like i own the rust ,like it's designed for your own .Type Inference,implicit,Elided.
 
-
-
- Tauri,Rocket,rayon,Tokio,Warp.
-
- Last but not least is Rust is a green language i.e energy efficient.It's important charactersitics toconsider since most of the world communicate through softwares.It's impact is huge since IoT on scale of billions thus
- reducing carbon footprints as well as secure s/w .
-
 Trade off that accepts before rust came:
  Speed,safety,Easy to use-Pick two
   c/c++ -Speed, but not safety
   python,js-Saftey,Easy to use but not speed(Gced,Non deterministic GC pause)
-  Rust -Pick three but at what cost you must to learn foundational concepts of rust in upfront to successfully compile 
-  the rust code.  
+  Rust -Pick three but at what cost you must to learn foundational concepts of rust in upfront to successfully
+compile the rust code.  
 
 
 
@@ -88,23 +84,15 @@ Dangling
 
  Backward compatability-This is important for to Evlove language feature as well as not breaking the code due to introducing new feature to the language.This is reason why c/C++ barely introduce any new features it will break code since it's already span millions of lines code in production.Beta,stable,Nightly.
 
- Scoped resource management is revolutionary idea to manage memory ,non_memory,locks automatically without human intervention.
-scoped resource management explained in another blog post with rust code examples.
+ Automatic scoped management for memory ,non_memory resources,locks,smart pinters are phenominal since no human intervention is needed and also no runtime cost for that.
 
  Used by Linux,fb,google android-fushia os,DropBox,Firfox,Amazon.
 
- Safety,Predictable Performance we know when the resources are cleanup just looking at the code unlike Gced,interpreter
-PL.
-
- Compiler errors are contain Rich info about what went wrong ,where that happened if code doesn't compile & also suggest 
-to fix that.This is important Since rust introduce unique concepts Like Ownership,borrowing,Liftime to rule out
-use after free,double free,dangling pointer,Iterator Invalidation,Concurrency bug at compile time.Don't worry if those
-words strange to you as they are explained in separate blog post. 
+ Compiler errors are contain Rich info about what went wrong ,where that happened if code doesn't compile &also suggest to fix that.This is important Since rust introduce unique concepts Like Ownership,borrowing,Liftime to rule out use after free,double free,dangling pointer,Iterator Invalidation,Concurrency bug at compile time.Don't worry if those words strange to you as they are explained in next blog post with rust code examples. 
 
  Custom types to enocde the business logic ,validation.
 
- One of the most supports of wasm -the protable binary runtime for web,desktop.If you want to know more about wasm read my
-previous blog post here.
+ One of the most supports of webassembly -the protable runtime for web,desktop,cloud,blockchain where isolation,startup time is important.Webassembly runtime wasmtime itself written in rust.
 
  Fearless concurrency since new hardware brings more cores than fast processor.Implementing concurreny & parallism
 is less cumbersome than c/c++,java.
@@ -113,31 +101,25 @@ is less cumbersome than c/c++,java.
 code doesn't crash at runtime .Like haskell once it's compiles it's work.(when unsafe sound)
 
 
-If you start a new project that needs to be run as efficient as possible without memory bugs also no GC then consider 
-using rust.
+If you start a new project that needs to be run as efficient as possible without memory bugs also no GC then consider using rust.
 
-Rust is interoperable with other PL through FFI.So instead of writing from scratch(Which is often unsuccesful) just
-rewrite the part that need to be run fast and won't crash at runtime.Using FFI for Elexir ,they reduce the latency down
-to nano seconds.Tilde rewrite the HTTP end points in rust the gain was phenomenol,from 5GB memory(Java) to 50MB 
-memory usage.(cloud bill also reduced as a side effect).
-Supports dynlib-so we can use that library at runtime like libc.
+Rust is interoperable with other PL through FFI.So instead of writing from scratch(Which is often unsuccesful)just rewrite the part that need to be run fast and won't crash at runtime.Using FFI for Elexir ,they reduce the latency down to nano seconds.Tilde rewrite the HTTP end points in rust the gain was phenomenol,from 5GB memory(Java) to 50MB memory usage.(cloud bill also reduced as a side effect).Supports dynlib-so we can use that library at runtime like libc.
 
-I think that rust is programming languge that c++ creater anticipated in his paper "History of c++" at end of the paper.
+ Last but not least is Rust is a green language i.e energy efficient.It's important charactersitics toconsider since most of the world communicate through softwares.It's impact is huge since IoT on scale of billions thus
+ reducing carbon footprints as well as secure s/w .
 
-References:
- https://www.nature.com/articles/d41586-020-03382-2
- https://rust-lang.org
- https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/
- https://blog.rust-lang.org/2014/10/30/Stability.html
- https://blog.rust-lang.org/2017/03/02/lang-ergonomics.html
- https://blog.rust-lang.org/2015/04/24/Rust-Once-Run-Everywhere.html
- Helix -Ruby & Rust
+I think that rust is going to be a programming languge that c++ creater anticipated in his paper "History of c++" at end of the paper.
 
-Some peoples to know in Rust community:
- Auron 
- Hatashi moto
- Jim blandy(Book)
- Carol & sal(free Book ,youtube video)
+Resources for further learning about rust:
+[Rust official Website](https://rust-lang.org)
+[Free high quality Rust book](https://doc.rust-lang.org/book/)
+[Programming rust book](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/)
+[Why scientist turns into rust by Nature](https://www.nature.com/articles/d41586-020-03382-2)
+[Why rust so popular by stackoverflow](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/)
+[](https://blog.rust-lang.org/2014/10/30/Stability.html)
+[Rust Ergonomics](https://blog.rust-lang.org/2017/03/02/lang-ergonomics.html)
+[Poratbility of Rust](https://blog.rust-lang.org/2015/04/24/Rust-Once-Run-Everywhere.html)
+[History of c++](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiywIqwmab8AhWn2DgGHVPKBYQQFnoECCsQAQ&url=https%3A%2F%2Fwww.stroustrup.com%2Fhopl2.pdf&usg=AOvVaw3plr2I2rXY4sbYfqb3dGKs)
 
 
 FootNotes:
