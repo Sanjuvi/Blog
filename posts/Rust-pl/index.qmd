@@ -83,86 +83,66 @@ Rust is a modern system programming language in addition to memory safe without 
 
 - Rust is expression oriented language.This makes code look cleaner.
 
+- Traits are equivalent to type clasess in haskell. 
+
+- Type aliasing increase the readability by making long names with shot name wherever they are used.
+
 - Immutability,type deduction,error as code,type classes,Haskell like type classes.
 
-Generics Reduce code duplication.Supports static dispatch and virtual dispatch.
-Traits are like Interface in Java but more flexibility,Protocols in Swift,Type Classes in Haskell provide
- abstraction,safety.
-Pattern Matching like switch in c but more powerful can be used wide variety of pattern than 'if' expression.Rust
- is expression oriented programming langauge.
-Enum -A user defined data type ,can contains data,more compact.Used with pattern matching cause they are like
- unions only field at a time is used not variants.
-Hygienic Macros-To generate boilerplate rust code for you ,expanded when compiling so you code looks clean.
-Closure-A anonymous function.You can do interesting thing with them.
-Robust error handling strategies through Result & Option Type,using from ,into traits through ? operator.You never forgot to check error as the compiler force you to do it ,the exhaustive nature of pattern matching.
-Type aliasing.
-Boxing.The syntax are clearer than the c,c++ counterpart.what's
-more the rust is most loved PL for developers for a 5 years as surveyed by anual stackoverflow.
+**Other Features**
 
+Supports *UTF-8* out of the box.Thus we can use more languages other than english,emojies,scientific symbols.
 
-Rust foundation is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future proof language.
-Rust conference videos are uploaded in youtube.
- 
- API Documentation of dependency if available through crates.io -No internet required once it's build by "cargo build" command.
+**Ergonomics** to use language feature than in the c/c++ counterparts.
 
- Cargo SemVer(Semantic Version)-Only update the minor,patches not the major version unless we specify explicitly what we
-are doing.
+*Generics* Reduce code duplication.Supports static dispatch and virtual dispatch via trait object at runtime.
 
- High level ergonomics to use Dynamic Data structure through Box,Smart pointers Rc,Arc,Automatic cleanup of resources,
-Operator overloading through Traits.DerefMut,Ops-implement the custom behavior to your type like indexing,compound assignment
-operator or method call.It's feel like i own the rust ,like it's designed for your own .Type Inference,implicit,Elided.
+*Hygienic Macros*-To generate boilerplate rust code for you ,expanded when compiling so your code looks clean.
 
- Backward compatibility-This is important for to Evolve language feature as well as not breaking the code due to introducing new feature to the language.This is reason why c/C++ barely introduce any new features it will break code since it's already span millions of lines code in production.Beta,stable,Nightly.
+*Closure*-A anonymous function.You can do interesting thing with them without worrying about safety.
 
- Automatic scoped management for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that.(More on that later)
+*Robust error handling strategies* through Result & Option Type,using from ,into traits through ? operator.You never forgot to check error as the compiler force you to do it ,the exhaustive nature of pattern matching.
 
- Used by Linux,fb,google android-fushia os,DropBox,Firfox,Amazon.
+*[Crates.io](https://crates.io)* a package registry for rust opensource libraries which cargo uses.
 
- Compiler errors are contain rich information about what went wrong ,where that happened if code doesn't compile and also suggest to fix that.This is important since rust introduce unique concepts Like ownership,borrow,lifetime to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bug at compile time.Don't worry if those words strange to you as they are explained in next blog post with rust code examples. 
+*Backward compatibility*-This is important for to evolve language feature as well as not breaking the code due to introducing new feature into the language.This is reason why c/C++ barely introduce any major features or it will break the old code since it's already span millions of lines code in production.
 
- Custom types to encode the business logic ,validation.
+**Automatic scoped management** for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that(More on that later).It's *RAII*(Resource acquistion is intialization) principle from c++ for managing resources.
 
- One of the most supports of webassembly -the protable runtime for web,desktop,cloud,blockchain where isolation,startup time is important.Webassembly runtime wasmtime itself written in rust.
+*[Rust foundation](https://foundation.rust-lang.org/)* is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future proof language.
 
- Because most of the errors are moved to compile time ,they unlikely to crash at runtime.Like haskell once it's compiles it's just work.
+*Compile errors* contain rich information about what went wrong ,where that happened if code doesn't compile and also suggest to fix that.This is important since rust introduce unique concepts Like ownership,borrow,lifetime to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bug at compile time.Don't worry if those words strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about [compile errors](https://doc.rust-lang.org/error_codes/error-index.html).
 
+Rust **wasm-bindgen** library generate webassembly -It's a portable runtime for web,desktop,cloud,blockchain where isolation,startup time is important.Webassembly runtime *wasmtime* itself written in rust.
 
-If you start a new project that needs to be run as efficient as possible without memory bugs also no GC then consider using rust.
+Because most of the errors are moved to compile time ,they unlikely to crash at runtime.Like haskell once it's compiles it's just work.
 
-Rust is interoperable with other PL through FFI.So instead of writing from scratch(Which is often unsuccesful)just rewrite the part that need to be run fast and won't crash at runtime.Using FFI for Elexir ,they reduce the latency down to nano seconds.Tilde rewrite the HTTP end points in rust the gain was phenomenol,from 5GB memory(Java) to 50MB memory usage.(cloud bill also reduced as a side effect).Supports dynlib-so we can use that library at runtime like libc.
-
- Last but not least is Rust is a green language i.e **energy efficient**.It's important characteristics to consider since most of the world communicate through softwares.It's impact is huge since IoT on scale of billions thus reducing carbon footprints as well as secure .
+Last but not least is Rust is a green language i.e it's very **energy efficient** after c.It's important characteristics to consider since most of the world communicate through softwares.It's impact is huge since IoT on scale of billions thus reducing carbon footprints as well as provides safety.
 
 I think that rust is going to be a programming language that c++ creater anticipated in his paper "History of c++" at end of the paper.
 
 Trade off that accepts before rust came:
- Speed,safety,Easy to use-Pick two.
- Language tend to provide safety,easy of use like python,java,js but not speed.Languages like c/c++ provide speed but unsafe.
- For Rust -Pick three but at what cost.Rust puts lot of restriction on the programmer side so it's essential to learn foundational concepts of rust in upfront to successfully compile the rust code. 
 
-Resources for further learning about rust:
+ **Speed,safety,Easy to use**-Pick any two.Language tend to provide **safety,easy of use** like python,java,js but not speed.Languages like c/c++ provide **speed but unsafe**.For Rust -Pick three but at what cost.Rust puts lot of restriction on the programmer side so it's essential to learn foundational concepts of rust in *upfront* to successfully compile the rust code.This is very cumbersome if you are coming from dynamic programming languages like python,java script,ruby.Stay patient,listen to the compiler and fix it.
+
+## Resources for further learning about rust
+
 [Rust official Website](https://rust-lang.org)
+
 [Free high quality Rust book](https://doc.rust-lang.org/book/)
+
 [Programming rust book](https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/)
+
 [Why scientist turns into rust by Nature](https://www.nature.com/articles/d41586-020-03382-2)
+
 [Why rust so popular by stackoverflow](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/)
-[](https://blog.rust-lang.org/2014/10/30/Stability.html)
+
+[Stability Without stagnation](https://blog.rust-lang.org/2014/10/30/Stability.html)
+
 [Rust Ergonomics](https://blog.rust-lang.org/2017/03/02/lang-ergonomics.html)
+
 [Seamless Integration with c](https://blog.rust-lang.org/2015/04/24/Rust-Once-Run-Everywhere.html)
+
 [History of c++](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiywIqwmab8AhWn2DgGHVPKBYQQFnoECCsQAQ&url=https%3A%2F%2Fwww.stroustrup.com%2Fhopl2.pdf&usg=AOvVaw3plr2I2rXY4sbYfqb3dGKs)
 
-
-FootNotes:
- I never used c/c++ for anything useful other than 101.I find that it's difficult to understand the code moreover the pointers are..Rust is much more ergonomics than c++
-
-
-
-
-
-
-
-
-
-## Reference:
- - <a href="https://www.nature.com/articles/d41586-020-03382-2" target="_blank">Why Scientist turns into Rust Nature</a> 
-- <a href="https://aws.amazon.com/blogs/opensource/sustainability-with-rust/" target="_blank">Amazon blog about rust</a>
+[Energy efficiency of Rust by amazon blog](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/)
