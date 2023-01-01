@@ -13,13 +13,13 @@ Zero cost abstraction is a memory model for system programming language that pro
 >What you do use, you couldn't hand code any better.
 
  It's still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through _GCC or LLVM_ the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run
- the program.Just because we have lots of memory that does't mean use all of that,that's what garbage collector do.Where as in embedded system memory is measured in Kb rather than GBs,TBs in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It's fast as the hardware allowed.
+ the program.Just because we have lots of memory that does't mean use all of that,that's what garbage collector do.Where as in embedded system memory is measured in KiloBytes rather than GigaBytes,TeraBytes in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It's fast as the hardware allowed.
 
 **Cost**:
 
 >What you don't use, you don't pay for.
 
- Every compuatation we perform have cost associated with it ,how much resources(time&space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.
+ Every compuatation we perform have cost associated with it ,how much resources(time and space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.
 
  **Abstraction** :
 

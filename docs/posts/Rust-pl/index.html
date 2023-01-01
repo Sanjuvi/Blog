@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sanjeevi">
-<meta name="dcterms.date" content="2022-12-31">
+<meta name="dcterms.date" content="2023-01-01">
 
-<title>Home - Zero Cost Abstraction</title>
+<title>Home - What is Rust?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Zero Cost Abstraction</h1>
+      <h1 class="title">What is Rust?</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Theory</div>
               </div>
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 31, 2022</p>
+        <p class="date">January 1, 2023</p>
       </div>
     </div>
     
@@ -143,63 +143,50 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Zero cost abstraction is a memory model for system programming language that provides abstraction that are equivalent to hand written low level code without any additional overhead ,proposed by Stroustrup in his paper Abstraction and C++ machine model.Let’s decompose them to explain their properties.</p>
-<p><strong>Zero</strong>:</p>
+<p>Rust is a emerging new system programming language.But what is system programming language? A system programming lanaguage is like any other programming langauge except it provides full control over hardware ,manual memory management ,abstraction without overhead to implement system level softwares,Run on bare metal(Without any operating system).So why another system programming langauge since we have c/c++.</p>
+<p>Reason to choose rust: Linus Torvalds, the creator of Linux,consider a rust as second langauge for the kernel development. The quotes below from Microsoft Azure CTO Mark Russinovich in Twitter.</p>
 <blockquote class="blockquote">
-<p>What you do use, you couldn’t hand code any better.</p>
+<p>Speaking of languages, it’s time to halt starting any new projects in C/C++ and use Rust for those scenarios where a non-GC language is required. For the sake of security and reliability. the industry should declare those languages as deprecated.</p>
 </blockquote>
-<p>It’s still cost but compared to other high level languages(Python,Java,C#) they have little overhead when using virtual dispatch.Once c/c++ compiler emit the assembly from the source code through <em>GCC or LLVM</em> the compiler no longer needed which means we can distribute excutable files without end user not used c/c++.Where as in dynamic programming lanaguages the source code and the language runtime must always sit behind to run the program.Just because we have lots of memory that does’t mean use all of that,that’s what garbage collector do.Where as in embedded system memory is measured in KiloBytes rather than GigaBytes,TeraBytes in PC,supercomputers in that gc is not an option other than using c/c++ or now rust.It’s fast as the hardware allowed.</p>
-<p><strong>Cost</strong>:</p>
-<blockquote class="blockquote">
-<p>What you don’t use, you don’t pay for.</p>
-</blockquote>
-<p>Every compuatation we perform have cost associated with it ,how much resources(time and space) needed to run a particular kind of task.Garbage collected languages takes more memory than necessary than manual memory management languages like c,c++,rust.</p>
-<p><strong>Abstraction</strong> :</p>
+<p>now look at the feature ,the language provide.</p>
+<p><strong>Tools and productivity</strong></p>
+<p><em>Cargo</em> -a build tool and package manager like Pip for python,Npm fo js but for a system PL since c/c++ doesn’t have universal supports(Make,Microsoft c++ package manager). <em>Clippy</em> command used find non idiomatic rust like ESLinter for js. <em>Rustfmt</em> command line tool to standardize coding style like Pretty for js. <em>Rustup</em> -Command line tool to insatll rust,rust components cargo,targets for cross compilation,change the rustc version(stable,nighlty,beta)</p>
+<p><em>Rust Language Server(Rls)</em> used in intelligence IDE to provide syntax highlighting,code completion,pointing error.</p>
+<p><em>Rust Docs</em> includes std library documentation,rust book,rust reference book when installing rust locally. <em>RustDoc</em> Generating documents embedded in rust source code via ‘///’ then rendering on Doc.rs Build in Testing frameowrk via <em>test</em> macros Module system to manage large programs. <em>Rust playground</em> for playing with the lanaguage instantly in the web browser without installing rust on local.</p>
+<p>Modern language Features:These features are already implemented in dynamic programmin Language but they are not ZCA. Generics Reduce code duplication.Supports static dispatch and virtual dispatch. Traits are like Interface in Java but more flexibilty,Protocols in Swift,Type Classes in Haskell provide abstraction,safety. Pattern Matching like swith but more powerful can be used wide variety of pattern than ‘if’ expression.Rust is expression oriented programming langauge. Enum -A user defined data type ,can contains data,more compact.Used with pattern matching cause they are like unions only field at a time is used not variants. Higienic Macros-To generate boilerplate rust code for you ,expanded when compiling so you code looks clean. Closure-You can do intersting thing with them. Robust error handling strategies through Result &amp; Option Type,using from ,into traits through ? operator. Type aliasing. Boxing.The syntax are clearer than the c,c++ counterpart.what’s more the rust is most loved PL for developers for a 5 years as survayed by anual stackoverflow.</p>
+<p>Communtiy -Rust foundation(Feature proof Language).Bighands-Mozila,Google,Fb,Amazon,Shopyfy.</p>
+<p>API Documentation of dependency if available thorugh crates.io -No internet required once it’s build by “cargo build” command.</p>
+<p>Cargo SemVer(Semantic Version)-Only update the minor,pathces not the major version unless we specify explicitly what we are doing.</p>
+<p>High level ergonomics to use Dynamic Data structure through Box,Smart pointers Rc,Arc,Automatic cleanup of resources, Operator overloading through Traits.DerefMut,Ops-implement the custom behavior to your type like indexing,compound assignment operator or method call.It’s feel like i own the rust ,like it’s designed for your own .Type Inference,implicit,Elided.</p>
+<p>Tauri,Rocket,rayon,Tokio,Warp.</p>
+<p>Last but not least is Rust is a green language i.e energy efficient.It’s important charactersitics toconsider since most of the world communicate through softwares.It’s impact is huge since IoT on scale of billions thus reducing carbon footprints as well as secure s/w .</p>
+<p>Trade off that accepts before rust came: Speed,safety,Easy to use-Pick two c/c++ -Speed, but not safety python,js-Saftey,Easy to use but not speed(Gced,Non deterministic GC pause) Rust -Pick three but at what cost you must to learn foundational concepts of rust in upfront to successfully compile the rust code.</p>
+<p><strong>Zero cost abstraction</strong> Abstraction in <em>system</em> programming lanaguge don’t impose any additional overhead.Because it’s a system programming language introducing abstraction means reduce the development time,less code,expresssive.</p>
+<p><strong>AOT</strong>(Ahead of Time) compiled The rust compiler(rustc) is a gatekeeper to refuse a code that violates the compiler rules without even running a program thus the excution and startup speed is low.</p>
+<p><strong>Guaranteed memory safety</strong> Dangling</p>
+<p>Backward compatability-This is important for to Evlove language feature as well as not breaking the code due to introducing new feature to the language.This is reason why c/C++ barely introduce any new features it will break code since it’s already span millions of lines code in production.Beta,stable,Nightly.</p>
+<p>Scoped resource management is revolutionary idea to manage memory ,non_memory,locks automatically without human intervention. scoped resource management explained in another blog post with rust code examples.</p>
+<p>Used by Linux,fb,google android-fushia os,DropBox,Firfox,Amazon.</p>
+<p>Safety,Predictable Performance we know when the resources are cleanup just looking at the code unlike Gced,interpreter PL.</p>
+<p>Compiler errors are contain Rich info about what went wrong ,where that happened if code doesn’t compile &amp; also suggest to fix that.This is important Since rust introduce unique concepts Like Ownership,borrowing,Liftime to rule out use after free,double free,dangling pointer,Iterator Invalidation,Concurrency bug at compile time.Don’t worry if those words strange to you as they are explained in separate blog post.</p>
+<p>Custom types to enocde the business logic ,validation.</p>
+<p>One of the most supports of wasm -the protable binary runtime for web,desktop.If you want to know more about wasm read my previous blog post here.</p>
+<p>Fearless concurrency since new hardware brings more cores than fast processor.Implementing concurreny &amp; parallism is less cumbersome than c/c++,java.</p>
+<p>Because most of the errors are moved to compile time we get the fast machine code as well as comple time gurantee that our code doesn’t crash at runtime .Like haskell once it’s compiles it’s work.(when unsafe sound)</p>
+<p>If you start a new project that needs to be run as efficient as possible without memory bugs also no GC then consider using rust.</p>
+<p>Rust is interoperable with other PL through FFI.So instead of writing from scratch(Which is often unsuccesful) just rewrite the part that need to be run fast and won’t crash at runtime.Using FFI for Elexir ,they reduce the latency down to nano seconds.Tilde rewrite the HTTP end points in rust the gain was phenomenol,from 5GB memory(Java) to 50MB memory usage.(cloud bill also reduced as a side effect). Supports dynlib-so we can use that library at runtime like libc.</p>
+<p>I think that rust is programming languge that c++ creater anticipated in his paper “History of c++” at end of the paper.</p>
+<p>References: https://www.nature.com/articles/d41586-020-03382-2 https://rust-lang.org https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/ https://blog.rust-lang.org/2014/10/30/Stability.html https://blog.rust-lang.org/2017/03/02/lang-ergonomics.html https://blog.rust-lang.org/2015/04/24/Rust-Once-Run-Everywhere.html Helix -Ruby &amp; Rust</p>
+<p>Some peoples to know in Rust community: Auron Hatashi moto Jim blandy(Book) Carol &amp; sal(free Book ,youtube video)</p>
+<p>FootNotes: I never used c/c++ for anything useful other than 101.I find that it’s difficult to understand the code moreover the pointers are..Rust is much more ergonomics than c++</p>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">Reference:</h2>
 <ul>
-<li><p>Modularity : Large code bases must be organized in order reason about,reused later.Adding new feature doen’t affect the rest of code base.Aid in good api design. It’s not always possible to provide abstraction for all kinds of task.For eg linux kernel uses little bit of assembly in it ,which hard to abstract but uses assembly nonthless.</p></li>
-<li><p>Less code maintenance.Rust features include Enums to write your intention compactly,Derive Macros to generate boilerplate code at compile rime,Generics to reduce the code lines but also the safety checking along the way.</p></li>
-<li><p>Python ,Js provides highest level of abstraction which hides lots of complexity like Pointers,Dynamic Memeory allocation thus lack control over hardware instead prefer ease of use,learn and prototype over runtime performance.</p></li>
-<li><p>Exposing low level details to the end user would mess up the hardware resources if they were using it in appropriately.For example in low level the alignment of bit must be multiple of size of the data type and power of two.If we design a api in way that refuse to compile if violating the requirements.In this way abstraction provides security.The same true for kernels,CUDA,Operation on a type.</p></li>
-<li><p>Source Level Compatability and portability(API)-Standard libaries(C++ templates,itertors) uses a os specific libraries to implement functionality like filesystem,netowrks but at the source level they are identical API but under the hood (conditional compilation) they are different.This make code portable ,less maintenance,No need learn new apis for each platform except architecture specific features.</p></li>
-<li><p>Least level of abstraction provided by Assembly.</p></li>
-</ul>
-<section id="other-languages-that-are-used-in-embedded-systems" class="level2">
-<h2 class="anchored" data-anchor-id="other-languages-that-are-used-in-embedded-systems">Other languages that are used in embedded systems:</h2>
-<p><a href="https://www.adacore.com/about-spark">Ada</a> <a href="https://dlang.org/">D</a> <a href="https://ivorylang.org">Ivory</a></p>
-</section>
-<section id="cpu-chip-architecture" class="level2">
-<h2 class="anchored" data-anchor-id="cpu-chip-architecture">CPU Chip Architecture</h2>
-<p>Each cpu architecture have different assembly instruction,some are backwards compatible others don’t.Compiler is complex piece of software that does the heavy work of converting high level concepts to architecture specific assmebly.Below are most used cpu architectures and their 32 and 64 bit variants.</p>
-<ul>
-<li>Intel</li>
-<li>Amd</li>
-<li>Arm</li>
-<li>PowerPC(IBM)</li>
-<li>Alpha</li>
-<li>Apple Silicon(Only available in Apple products)</li>
-<li>Risc -v(Opensource Instruction Set Architecture(ISA)))</li>
-</ul>
-<p>It’s actually misleading when people say c++ is a platform dependent ,but java have famous quote that “Write once ,run anywhere”.Lots of the complexity is abstracted away from programmer by the java runtime libararies.Java Runtime converts platform independent byte code into machine specific instruction at runtime.</p>
-<p>If Manual memory management is more efficient then why we have GCed language in the first place.Sotware runs the world,it is important to write software that are memory safety since writing memory safety sotwares in system programming lanaguge lead to vulnerability because of way the language is designed.Lots of series vulnerability found in c/c++ code bases.GCed lanaguge prefer safety over runtime performance.But <strong>rust</strong> came to break that tradeoff as we will see in next article.</p>
-</section>
-<section id="pros-of-managed-or-gced-language" class="level1">
-<h1>Pros of managed or GCed language</h1>
-<p>No need to worry about memory related bugs at runtime(though not all bugs are addressed by GC).Instead focus on problem you want to solve rather than weired problems.</p>
-</section>
-<section id="pros-of-manual-memory-management" class="level1">
-<h1>Pros of Manual Memory Management</h1>
-<p>Predictable performance of memory allocation and deallocation thus efficient use of resources.</p>
-<p>A program performance can be improved if most of the bugs are moved to compile time rather than runtime.For example <em>safe</em> <strong>rust</strong> refuse to compile if the program has dangling pointer.</p>
-<p>I hope you understand the reason why c/c++ used to write operating system,kernel,boot loader,networking,file systems,database and many low level stuffs that get most out of available hardware without imposing any additional overhead even though they are unsafe.</p>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<ul>
-<li><a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a></li>
-<li><a href="https://link.springer.com/chapter/10.1007/11535409_1" target="_blank">Abstraction and C++ machine model stroustrup 2005</a></li>
+<li><a href="https://www.nature.com/articles/d41586-020-03382-2" target="_blank">Why Scientist turns into Rust Nature</a></li>
+<li><a href="https://aws.amazon.com/blogs/opensource/sustainability-with-rust/" target="_blank">Amazon blog about rust</a></li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
