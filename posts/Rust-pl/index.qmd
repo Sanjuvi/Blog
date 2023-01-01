@@ -62,12 +62,19 @@ rustc version(stable,nighlty,beta)
 *Rust playground* for playing with the lanaguage instantly in the web browser without installing rust on local.
 
 Rust is a modern system programming language in addition to memory safe without using Garbage Collector.Is modern in a sense that these features are available in high level dynamic programming lannaguge not implemented in system programming lanaguage.Functional programming features are include(In the context of haskell-a pure functional programming language)
+
 - Unit type-A function without explit return type returns unit type '()-a empty tuple'.It's like void in c/c++
+
 - pattern matching-Pattern must be exhaustive,cover all possible cases otherwise got compile error.
+
 - Algebraic data types(Enums)-This is useful in handling errors since rust doesn't have nullpointer.Super handy with pattern matching.
+
 - lazy evaluation-Iterators in rust are lazy,they are evaluated as they are requested not at once.
+
 - Rust is expression oriented lanaguge.This makes code look cleaner.
-imutability,type deduction,error as code,type classes,Haskell like type classes.
+
+- imutability,type deduction,error as code,type classes,Haskell like type classes.
+
 Generics Reduce code duplication.Supports static dispatch and virtual dispatch.
 Traits are like Interface in Java but more flexibilty,Protocols in Swift,Type Classes in Haskell provide
  abstraction,safety.
