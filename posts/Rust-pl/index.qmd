@@ -26,19 +26,24 @@ now look at the feature ,the language provide.
  Abstraction in *system* programming lanaguge don't impose any additional overhead.Because it's a system programming language introducing abstraction means reduce the development time,less code,expresssive.
  Zero cost FFI because of lack of GC.
 
-**AOT**(Ahead of Time) compiled
-The rust compiler(rustc) is a gatekeeper to refuse a code that violates the compiler rules without even running a program thus the excution and startup speed is low once excutable file generated. 
+**AOT**(Ahead of Time) 
+
+Rust compiler(rustc) is a gatekeeper to refuse a code that violates the compiler rules without even running a program thus the excution and startup speed is low once excutable file generated but also compiler optimize 
 
 **Guaranteed memory safety**
 
-- Dangling pointer,double free,null pointer dereferences are memory errors that are detetcted at compile time i.e the code with thease error don't compile.Integer overflow, buffer overflow are detected at runtime,causes the program to panic at runtime instead continue with wrong input.
+- Dangling pointer,double free,null pointer dereferences are memory errors that are detetcted at compile time i.e the code with thease error don't compile.Integer overflow, buffer overflow are detected at runtime,causes the rust program to panic at runtime instead of continue with wrong input that leads to undefined behaviour.
+As long as unsafe sound we are free of memory related bugs.
 
-- Concurrency bug is detected at **compile time**.This is significant because concurrency bugs are much harder to reproduce as they were time dependent(non deterministic).There are libraries that rust provide to implement synchronization and lock free concurrency safely without any data corruption whatsover.
+**Move Semantics**
 
-**Move** Semantics
+- In rust a type either copy or move.This distinction make certain behaviour injected when variables goes out of scope by the compiler without programmer intent.Primitive types like Int ,Float,bool,char are copy types i.e they are cheap to make a copy.Dynamically allocated types are movable i.e when assigned to new variable ,the old one is unintialized,this prevent double free error since only one owner for the variable except smart pointers.
 
-- In rust a type either copy or move.This distinction make certain behaviour injected when variables goes out of scope by the compiler without programmer intent.Primitive types like Int ,Float,bool,char are copy types i.e they are cheap to make a copy.Dynamically allocated types are movable i.e when assigned to new variable ,the old one is unintialized,this prevent double free error.
+ **Fearless concurrency**.
+ 
+ - Today consumer pc hardware brings more cores than fast processor.Concurrency is way to increase throughput of a program.But implementing concurrency have it's own risk like *race condtion* (ordering of task is non deterministic),*data races* (muliple threads are accessing and writting to same memory without synchronization which leads to data incosistent), *Dead lock* (form cycle prevent to release memory thus leads memory leaks).Cncurrency in rust is a low risk operation than c/c++,java since rustc has your back.
 
+ - Concurrency bug is detected at **compile time**.This is significant because concurrency bugs are much harder to reproduce as they were time dependent(non deterministic).There are libraries that rust provide to implement synchronization and lock free concurrency safely without any data corruption whatsover.
 
 **Tools and productivity**
  
@@ -57,9 +62,12 @@ rustc version(stable,nighlty,beta)
 *Rust Docs* includes std library documentation,rust book,rust reference book when installing rust locally.
 
 *RustDoc* Generating documents embedded in rust source code via '///' then rendering on Doc.rs
+
  Build in Testing frameowrk via *test* macros
- Module system to manage large programs. 
-*Rust playground* for playing with the lanaguage instantly in the web browser without installing rust on local.
+
+ Module system to manage large programs.
+
+*[Rust playground](play.rust-lang.org/)* for playing with the lanaguage instantly in the web browser without installing rust on local.
 
 Rust is a modern system programming language in addition to memory safe without using Garbage Collector.Is modern in a sense that these features are available in high level dynamic programming lannaguge not implemented in system programming lanaguage.Functional programming features are include(In the context of haskell-a pure functional programming language)
 
@@ -102,25 +110,19 @@ are doing.
 Operator overloading through Traits.DerefMut,Ops-implement the custom behavior to your type like indexing,compound assignment
 operator or method call.It's feel like i own the rust ,like it's designed for your own .Type Inference,implicit,Elided.
 
-
-
  Backward compatability-This is important for to Evlove language feature as well as not breaking the code due to introducing new feature to the language.This is reason why c/C++ barely introduce any new features it will break code since it's already span millions of lines code in production.Beta,stable,Nightly.
 
- Automatic scoped management for memory ,non_memory resources,locks,smart pinters are phenominal since no human intervention is needed and also no runtime cost for that.(More on that later)
+ Automatic scoped management for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that.(More on that later)
 
  Used by Linux,fb,google android-fushia os,DropBox,Firfox,Amazon.
 
- Compiler errors are contain Rich info about what went wrong ,where that happened if code doesn't compile &also suggest to fix that.This is important Since rust introduce unique concepts Like Ownership,borrowing,Liftime to rule out use after free,double free,dangling pointer,Iterator Invalidation,Concurrency bug at compile time.Don't worry if those words strange to you as they are explained in next blog post with rust code examples. 
+ Compiler errors are contain rich information about what went wrong ,where that happened if code doesn't compile annd also suggest to fix that.This is important since rust introduce unique concepts Like ownership,borrowing,liftime to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bug at compile time.Don't worry if those words strange to you as they are explained in next blog post with rust code examples. 
 
  Custom types to enocde the business logic ,validation.
 
  One of the most supports of webassembly -the protable runtime for web,desktop,cloud,blockchain where isolation,startup time is important.Webassembly runtime wasmtime itself written in rust.
 
- Fearless concurrency since new hardware brings more cores than fast processor.Implementing concurreny & parallism
-is less cumbersome than c/c++,java.
-
- Because most of the errors are moved to compile time we get the fast machine code as well as comple time gurantee that our
-code doesn't crash at runtime .Like haskell once it's compiles it's work.(when unsafe sound)
+ Because most of the errors are moved to compile time ,they unlikely to crash at runtime.Like haskell once it's compiles it's just work.
 
 
 If you start a new project that needs to be run as efficient as possible without memory bugs also no GC then consider using rust.
