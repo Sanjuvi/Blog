@@ -127,6 +127,8 @@ Trade off that accepts before rust came:
 
 ## Resources for further learning about rust
 
+Open the link in a new tab by holding 'ctrl' then click the link ,if you are using mouse then just click rolling button.
+
 [Rust official Website](https://rust-lang.org)
 
 [Free high quality Rust book](https://doc.rust-lang.org/book/)
@@ -144,5 +146,7 @@ Trade off that accepts before rust came:
 [Seamless Integration with c](https://blog.rust-lang.org/2015/04/24/Rust-Once-Run-Everywhere.html)
 
 [History of c++](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiywIqwmab8AhWn2DgGHVPKBYQQFnoECCsQAQ&url=https%3A%2F%2Fwww.stroustrup.com%2Fhopl2.pdf&usg=AOvVaw3plr2I2rXY4sbYfqb3dGKs)
+
+[Why Discord is switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust).
 
 [Energy efficiency of Rust by amazon blog](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/)
