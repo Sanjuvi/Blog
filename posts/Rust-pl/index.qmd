@@ -5,85 +5,85 @@ date: "2023-01-01"
 categories: [Theory]
 image: "image.svg"
 ---
-**Rust** is a emerging new system programming language.But what is system programming language?
-A system programming language is like any other programming langauge except it provides full control over hardware ,manual memory management ,abstraction without overhead to implement system level software,run on bare metal(Without any operating system).So why another system programming language since we have c/c++.
+**Rust** is an emerging new system programming language. But what is a system programming language?
+A system programming language is like any other programming language except it provides full control over hardware, manual memory management, abstraction without overhead like c++ to implement system-level software, and runs on bare metal(Without any operating system). So why another system programming language since we have c/c++?
 
-**What others tells about rust**
-Linus Torvalds, the creator of Linux,consider a rust as second language for the kernel development.
+**What others tell about rust**
 
-The quotes below from Microsoft Azure CTO Mark Russinovich in Twitter.
+Linus Torvalds, the creator of Linux, considers rust as a second language for kernel development.
+
+The quotes below are from Microsoft Azure CTO Mark Russinovich in Twitter.
 
 > Speaking of languages, it's time to halt starting any new projects in C/C++ and use Rust for those scenarios where a non-GC language is required. For the sake of security and reliability. the industry should declare those languages as deprecated.
 
+Currently, rust is the best alternative to c/c++ Levin Microsoft
 
-Currently rust is the best alternative to c/c++ by Levin Microsoft
+Rust is most loved by developers for five years row, a survey conducted by StackOverflow.
 
-Rust is most loved by developers in five years row ,a survey conducted by stackoverflow.
-
-now look at the feature ,the language provide.
+now look at the feature, the language provides.
 
 **Zero cost abstraction** 
- Abstraction in *system* programming language don't impose any additional overhead.Because it's a system programming language introducing abstraction means reduce the development time,less code,expressive.
+ Abstraction in *the system* programming language doesn't impose any additional overhead. Because it's a system programming language introducing abstraction means reducing the development time, less code, expressive.
  Zero cost FFI because of lack of GC.
 
 **AOT**(Ahead of Time) 
 
-Rust compiler(rustc) is a gatekeeper to refuse a code that violates the compiler rules without even running a program thus the execution and startup speed is low once executable file generated but also compiler optimize 
+Rust compiler(rustc) is a gatekeeper to refuse a code that violates the compiler rules without even running a program thus the execution and startup speed is low once an executable file is generated. 
 
 **Guaranteed memory safety**
 
-- Dangling pointer,double free,null pointer dereferences are memory errors that are detected at compile time i.e the code with thease error don't compile.Integer overflow, buffer overflow are detected at runtime,causes the rust program to panic at runtime instead of continue with wrong input that leads to undefined behaviour.
-As long as unsafe sound we are free of memory related bugs.
+- Dangling pointer, double free, and null pointer dereferences are memory errors that are detected at compile time i.e the code with these errors doesn't compile. Integer overflow and buffer overflow are detected at runtime, causing the rust program to panic at runtime instead of continuing with the wrong input which leads to undefined behavior.
+As long as the unsafe sound we are free of memory-related bugs.
 
 **Move Semantics**
 
-- In rust a type either copy or move.This distinction make certain behaviour injected when variables goes out of scope by the compiler without programmer intent.Primitive types like Int ,Float,bool,char are copy types i.e they are cheap to make a copy.Dynamically allocated types are movable i.e when assigned to new variable ,the old one is uninitialized,this prevent double free error since only one owner for the variable except smart pointers.
+- In rust, a type either copies or move. This distinction makes certain behavior injected when variables go out of scope by the compiler without the programmer's intent. Primitive types like Int, Float, bool, and char are copy types i.e they are cheap to make a copy. Dynamically allocated types are movable i.e when assigned to a new variable, the old one is uninitialized, this prevents double-free error since only one owner for the variable except for smart pointers.
 
  **Fearless concurrency**.
  
- - Today consumer pc hardware brings more cores than fast processor.Concurrency is way to increase throughput of a program.But implementing concurrency have it's own risk like *race condition* (ordering of task is non deterministic),*data races* (multiple threads are accessing and writting to same memory without synchronization which leads to data inconsistent), *Dead lock* (form cycle prevent to release memory thus leads memory leaks).Cncurrency in rust is a low risk operation than c/c++,java since rustc has your back.
+ - Today consumer pc hardware brings more cores than a fast processor. Concurrency is way to increase throughput of a program.But implementing concurrency have its own risk like *race condition* (ordering of task is nondeterministic),*data races* (multiple threads are accessing and writing to same memory without synchronization which leads to data inconsistent), *Deadlock* (form cycle prevent to release memory thus leads memory leaks).Cncurrency in rust is a low-risk operation than c/c++,java since rustc has your back.
 
- - Concurrency bug is detected at **compile time**.This is significant because concurrency bugs are much harder to reproduce as they were time dependent(non deterministic).There are libraries that rust provide to implement synchronization and lock free concurrency safely without any data corruption whatsover.
+ - Concurrency bug is detected at **compile time**. This is significant because concurrency bugs are much harder to reproduce as they were time-dependent (non-deterministic).There are libraries that rust provides to implement synchronization and lock-free concurrency safely without any data corruption whatsoever.
 
 **Tools and productivity**
  
-*Cargo* -a build tool and package manager like Pip for python,Npm fo js but for a system PL since c/c++
+*Cargo* -a build tool and a package manager like Pip for python,Npm fo js but for a system PL since c/c++
  doesn't have universal supports(Make,Microsoft c++ package manager).
 
-*Clippy* command used find non idiomatic rust like ESLinter for js.
+*Clippy* command used to find non-idiomatic rust like ESLinter for js.
 
-*Rustfmt* command line tool to standardize coding style like Pretty for js.
+*Rustfmt* command line tool to standardize coding style like pretty quick for js.
 
-*Rustup* -Command line tool to install rust,rust components cargo,targets for cross compilation,change the
+*Rustup* -Command line tool to install rust, rust components cargo,targets for cross-compilation, change the
 rustc version(stable,nightly,beta)
 
-*Rust Language Server(rls)* used in intelligence IDE to provide syntax highlighting,code completion,pointing error.
+*Rust Language Server(rls)* used in intelligence IDE to provide syntax highlighting,code completion, pointing errors.
 
-*Rust Docs* includes std library documentation,rust book,rust reference book when installing rust locally.
+*Rust Docs* includes std library documentation, rust book, rust reference book when installing rust locally.
 
-*RustDoc* Generating documents embedded in rust source code via '///' then rendering on Doc.rs
+*RustDoc* Generating documents embedded in rust source code via '///' and then rendering on Doc.rs
 
- Build in testing framework via *test* macros
+ Build in testing framework via *test* macros.
 
  Module system to manage large programs.
 
- Because rust is a system programming language it supports condtional compilation,staticlib,dynamic link library .
+ Because rust is a system programming language it supports conditional compilation,staticlib,dynamic link library.
 
-*[Rust playground](play.rust-lang.org/)* for playing with the language instantly in the web browser without installing rust on local.
+*[Rust playground](play.rust-lang.org/)* for playing with the language instantly in the web browser without installing rust locally.
 
-Rust is a modern system programming language in addition to memory safe **without using Garbage Collector**.Is modern in a sense that these features are available in high level dynamic programming language not implemented in system programming lanaguage.Functional programming features are include(In the context of haskell-a pure functional programming language)
+Rust is a modern system programming language in addition to memory safe **without using Garbage Collector**. Is modern in the sense that these features are available in high-level dynamic programming languages not implemented in system programming languages. Functional programming features are included (In the context of Haskell-a pure functional programming language)
 
-- Unit type-A function without explit return type returns unit type '()-a empty tuple'.It's like void in c/c++
+- Unit type-A function without explicit return type returns unit type '()-an empty tuple'.It's like a void in c/c++
 
-- pattern matching-Pattern must be exhaustive,cover all possible cases otherwise got compile error.
+- pattern matching-Pattern must be exhaustive,cover all possible cases otherwise get a compile error.
 
-- Algebraic data types(Enums)-This is useful in handling errors since rust doesn't have nullpointer.Super handy with pattern matching.
+- Algebraic data types(Enums)-This is useful in handling errors since rust doesn't have a nullpointer. Super handy with pattern matching.
 
-- lazy evaluation-Iterators in rust are lazy,they are evaluated as they are requested not at once.
+- lazy evaluation-Iterators in rust are lazy, they are evaluated as they are requested not at once.
 
-- Rust is expression oriented language.This makes code look cleaner.
+- Rust is an expression-oriented language. This makes the code look cleaner.
 
-- Traits are equivalent to type clasess in haskell. 
+- Traits are equivalent to type classes in Haskell. 
 
 - Type aliasing increase the readability by making long names with shot name wherever they are used.
 
@@ -91,43 +91,43 @@ Rust is a modern system programming language in addition to memory safe **withou
 
 **Other Features**
 
-Supports *UTF-8* out of the box.Thus we can use more languages other than english,emojies,scientific symbols.
+Supports *UTF-8* out of the box.Thus we can use more languages other than english, emojis,scientific symbols.
 
-**Ergonomics** to use language feature than in the c/c++ counterparts.
+**Ergonomics** to use language features than in the c/c++ counterparts.
 
-*Generics* Reduce code duplication.Supports static dispatch along with compiler optimization and virtual dispatch via trait object at runtime.
+*Generics* Reduce code duplication. Supports static dispatch along with compiler optimization and virtual dispatch via trait object at runtime.
 
-*Hygienic Macros*-To generate boilerplate rust code for you ,expanded when compiling so your code looks clean.
+*Hygienic Macros*-To generate boilerplate rust code for you , expanded when compiling so your code looks clean.
 
-*Closure*-A anonymous function.You can do interesting thing with them without worrying about safety.
+*Closure* anonymous function.You can do an interesting thing with them without worrying about safety.
 
-*Robust error handling strategies* through Result & Option Type,using from ,into traits through ? operator.You never forgot to check error as the compiler force you to do it ,the exhaustive nature of pattern matching.
+*Robust error handling strategies* through Result & Option Type,using from ,into traits through ? operator.You never forgot to check error as the compiler forces you to do it ,the exhaustive nature of pattern matching.
 
 *[Crates.io](https://crates.io)* a package registry for rust opensource libraries which cargo uses.
 
-*Backward compatibility*-This is important for to evolve language feature as well as not breaking the code due to introducing new feature into the language.This is reason why c/C++ barely introduce any major features or it will break the old code since it's already span millions of lines code in production.
+*Backward compatibility*-This is important for evolving language feature as well as not breaking the code due to introducing new features into the language.This is reason why c/C++ barely introduces any major features or it will break the old code since it's already span millions of lines of code in production.
 
-**Automatic scoped management** for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that(More on that later).It's *RAII*(Resource acquistion is intialization) principle from c++ for managing resources.
+**Automatic scoped management** for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that(More on that later).It's *RAII*(Resource acquistion is initialization) principle from c++ for managing resources.
 
-*[Rust foundation](https://foundation.rust-lang.org/)* is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future proof language.
+*[Rust Foundation](https://foundation.rust-lang.org/)* is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future-proof language.
 
-*Compile errors* contain rich information about what went wrong ,where that happened if code doesn't compile and also suggest to fix that.This is important since rust introduce unique concepts Like **ownership,borrowing,lifetime** to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bugs at compile time.Don't worry if those words strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about [compile errors](https://doc.rust-lang.org/error_codes/error-index.html).
+*Compile errors* contain rich information about what went wrong ,where that happened if code doesn't compile and also suggests fixing that.This is important since rust introduces unique concepts Like **ownership, borrowing,lifetime** to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bugs at compile time.Don't worry if those words are strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about [compile errors](https://doc.rust-lang.org/error_codes/error-index.html).
 
-Rust **wasm-bindgen** library generate webassembly -It's a portable runtime for web,desktop,cloud,blockchain where isolation,startup time is important.Webassembly runtime *wasmtime* itself written in rust.
+Rust **wasm-bindgen** library generate webassembly -It's a portable runtime for web,desktop,cloud,blockchain where isolation,startup time are important.Webassembly runtime *wasmtime* itself is written in rust.
 
-Because most of the errors are moved to compile time ,they unlikely to crash at runtime.Like haskell once it's compiles it's just work.
+Because most of the errors are moved to compile time ,they are unlikely to crash at runtime.Like haskell once it's compiled it's just work.
 
-Last but not least is Rust is a green language i.e it's very **energy efficient** after c.It's important characteristics to consider since most of the world communicate through softwares.It's impact is huge since IoT on scale of billions thus reducing carbon footprints as well as provides safety.
+Last but not least Rust is a green language i.e it's very **energy efficient** after c.It's important characteristic to consider since most of the world communicates through software.It's impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.
 
-I think that rust is going to be a programming language that c++ creater anticipated in his paper "History of c++" at end of the paper.
+I think that rust is going to be a programming language that c++ creator anticipated in his paper "History of c++" at end of the paper.
 
-Trade off that accepts before rust came:
+The trade off that accepts before rust came:
 
- **Speed,safety,Easy to use**-Pick any two.Language tend to provide **safety,easy of use** like python,java,js but not speed.Languages like c/c++ provide **speed but unsafe**.For Rust -Pick three but at what cost.Rust puts lot of restriction on the programmer side so it's essential to learn foundational concepts of rust in *upfront* to successfully compile the rust code.This is very cumbersome if you are coming from dynamic programming languages like python,java script,ruby.Stay patient,listen to the compiler and fix it.
+ **Speed, safety,Easy to use**-Pick any two.Language tends to provide **safety, easy of use** like python,java,js but not speed. Languages like c/c++ provide **speed but unsafe**.For Rust -Pick three but at what cost.Rust puts lot of restrictions on the programmer side so it's essential to learn foundational concepts of rust *upfront* to successfully compile the rust code. This is very cumbersome if you are coming from dynamic programming languages like python,java script,ruby.Stay patient,listen to the compiler and fix it.
 
 ## Resources for further learning about rust
 
-Open the link in a new tab by holding 'ctrl' then click the link ,if you are using mouse then just click rolling button.
+Open the link in a new tab by holding 'ctrl' and then click the link,if you are using a mouse then just click a rolling button.
 
 [Rust official Website](https://rust-lang.org)
 
@@ -150,3 +150,4 @@ Open the link in a new tab by holding 'ctrl' then click the link ,if you are usi
 [Why Discord is switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust).
 
 [Energy efficiency of Rust by amazon blog](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/)
+

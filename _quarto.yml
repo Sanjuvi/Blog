@@ -4,13 +4,12 @@ project:
 
 website:
   title: "Home"
+  site-url: "https://sanjuvi.github.io/Blog/"
   navbar:
     right:
       - about.qmd
 format:
   html:
-    theme: materia
+    theme: zephyr
     css: styles.css
-
-
 
