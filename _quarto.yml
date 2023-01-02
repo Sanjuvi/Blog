@@ -7,10 +7,6 @@ website:
   navbar:
     right:
       - about.qmd
-      - icon: github
-        href: https://github.com/Sanjuvi/
-      - icon: twitter
-        href: https://twitter.com/PySanjeevi/
 format:
   html:
     theme: solar

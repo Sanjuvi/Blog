@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: ""
 image: profile.jpg
 about:
   template: jolla
@@ -15,4 +15,6 @@ about:
       href: https://github.com/Sanjuvi/
 
 ---
+
+Education :B.E-Computer Science(GCT-Coimbatore)
 
