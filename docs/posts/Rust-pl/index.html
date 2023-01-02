@@ -135,15 +135,19 @@ ul.task-list li input[type="checkbox"] {
 
 <p><strong>Rust</strong> is an emerging new system programming language. But what is a system programming language? A system programming language is like any other programming language except it provides full control over hardware, manual memory management, abstraction without overhead like c++ to implement system-level software, and runs on bare metal(Without any operating system). So why another system programming language since we have c/c++?</p>
 <p><strong>What others tell about rust</strong></p>
-<p>Linus Torvalds, the creator of Linux, considers rust as a second language for kernel development.</p>
+<blockquote class="blockquote">
+<p>Linus Torvalds, the creator of Linux, considers rust as a second language for kernel development. This is somewhat intriguing since Linux doesn’t consider c++ as a secondary language</p>
+</blockquote>
 <p>The quotes below are from Microsoft Azure CTO Mark Russinovich in Twitter.</p>
 <blockquote class="blockquote">
 <p>Speaking of languages, it’s time to halt starting any new projects in C/C++ and use Rust for those scenarios where a non-GC language is required. For the sake of security and reliability. the industry should declare those languages as deprecated.</p>
 </blockquote>
-<p>Currently, rust is the best alternative to c/c++ Levin Microsoft</p>
+<blockquote class="blockquote">
+<p>The microsoft Security Response Center (MSRC) stated “we think that Rust represents the best alternative to C and C++ currently available.</p>
+</blockquote>
 <p>Rust is most loved by developers for five years row, a survey conducted by StackOverflow.</p>
 <p>now look at the feature, the language provides.</p>
-<p><strong>Zero cost abstraction</strong> Abstraction in <em>the system</em> programming language doesn’t impose any additional overhead. Because it’s a system programming language introducing abstraction means reducing the development time, less code, expressive. Zero cost FFI because of lack of GC.</p>
+<p><strong>Zero cost abstraction</strong> Abstraction in <em>the system</em> programming language doesn’t impose any additional overhead. Because it’s a system programming language introducing abstraction means reducing the development time, less code, expressive.More on <a href="https://sanjuvi.github.io/Blog/posts/Zero-cost-abstraction/">here</a>.</p>
 <p><strong>AOT</strong>(Ahead of Time)</p>
 <p>Rust compiler(rustc) is a gatekeeper to refuse a code that violates the compiler rules without even running a program thus the execution and startup speed is low once an executable file is generated.</p>
 <p><strong>Guaranteed memory safety</strong></p>
@@ -179,24 +183,24 @@ ul.task-list li input[type="checkbox"] {
 <li><p>lazy evaluation-Iterators in rust are lazy, they are evaluated as they are requested not at once.</p></li>
 <li><p>Rust is an expression-oriented language. This makes the code look cleaner.</p></li>
 <li><p>Traits are equivalent to type classes in Haskell.</p></li>
-<li><p>Type aliasing increase the readability by making long names with shot name wherever they are used.</p></li>
-<li><p>Immutability,type deduction,error as code,type classes,Haskell like type classes.</p></li>
+<li><p>Type aliasing increase the readability by making long names with short name wherever they are used.</p></li>
+<li><p>Immutability,type deduction,error as code.</p></li>
 </ul>
 <p><strong>Other Features</strong></p>
-<p>Supports <em>UTF-8</em> out of the box.Thus we can use more languages other than english, emojis,scientific symbols.</p>
+<p>Supports <em>UTF-8</em> out of the box. Thus we can use more languages other than English. We can use emojis, scientific symbols, and other foreign languages.</p>
 <p><strong>Ergonomics</strong> to use language features than in the c/c++ counterparts.</p>
 <p><em>Generics</em> Reduce code duplication. Supports static dispatch along with compiler optimization and virtual dispatch via trait object at runtime.</p>
 <p><em>Hygienic Macros</em>-To generate boilerplate rust code for you , expanded when compiling so your code looks clean.</p>
 <p><em>Closure</em> anonymous function.You can do an interesting thing with them without worrying about safety.</p>
 <p><em>Robust error handling strategies</em> through Result &amp; Option Type,using from ,into traits through ? operator.You never forgot to check error as the compiler forces you to do it ,the exhaustive nature of pattern matching.</p>
-<p><em><a href="https://crates.io">Crates.io</a></em> a package registry for rust opensource libraries which cargo uses.</p>
+<p><em><a href="https://crates.io">Crates.io</a></em> a package registry for rust opensource libraries which cargo uses interanlly when building.</p>
 <p><em>Backward compatibility</em>-This is important for evolving language feature as well as not breaking the code due to introducing new features into the language.This is reason why c/C++ barely introduces any major features or it will break the old code since it’s already span millions of lines of code in production.</p>
 <p><strong>Automatic scoped management</strong> for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that(More on that later).It’s <em>RAII</em>(Resource acquistion is initialization) principle from c++ for managing resources.</p>
 <p><em><a href="https://foundation.rust-lang.org/">Rust Foundation</a></em> is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future-proof language.</p>
 <p><em>Compile errors</em> contain rich information about what went wrong ,where that happened if code doesn’t compile and also suggests fixing that.This is important since rust introduces unique concepts Like <strong>ownership, borrowing,lifetime</strong> to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bugs at compile time.Don’t worry if those words are strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about <a href="https://doc.rust-lang.org/error_codes/error-index.html">compile errors</a>.</p>
-<p>Rust <strong>wasm-bindgen</strong> library generate webassembly -It’s a portable runtime for web,desktop,cloud,blockchain where isolation,startup time are important.Webassembly runtime <em>wasmtime</em> itself is written in rust.</p>
-<p>Because most of the errors are moved to compile time ,they are unlikely to crash at runtime.Like haskell once it’s compiled it’s just work.</p>
-<p>Last but not least Rust is a green language i.e it’s very <strong>energy efficient</strong> after c.It’s important characteristic to consider since most of the world communicates through software.It’s impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.</p>
+<p>Rust <strong>wasm-bindgen</strong> library generate <strong>webassembly</strong> -It’s a portable runtime for web,desktop,cloud,blockchain where isolation,startup time are important.Webassembly runtime <em>wasmtime</em> itself is written in rust.</p>
+<p>Because most of the errors are moved to compile time ,they are unlikely to crash at runtime and thus reliable for embedded systems reliable.Like haskell once it’s compiled it’s just work.</p>
+<p>Last but not least Rust is a green language i.e it’s very <strong>energy efficient</strong> after c.It’s important characteristic to consider since most of the world communicates through software.It’s impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.In the case of cloud computing writing software in rust means low carbon footprints like c but safety as well as less cloud bills as rust consume less memories.</p>
 <p>I think that rust is going to be a programming language that c++ creator anticipated in his paper “History of c++” at end of the paper.</p>
 <p>The trade off that accepts before rust came:</p>
 <p><strong>Speed, safety,Easy to use</strong>-Pick any two.Language tends to provide <strong>safety, easy of use</strong> like python,java,js but not speed. Languages like c/c++ provide <strong>speed but unsafe</strong>.For Rust -Pick three but at what cost.Rust puts lot of restrictions on the programmer side so it’s essential to learn foundational concepts of rust <em>upfront</em> to successfully compile the rust code. This is very cumbersome if you are coming from dynamic programming languages like python,java script,ruby.Stay patient,listen to the compiler and fix it.</p>

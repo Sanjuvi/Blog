@@ -10,21 +10,20 @@ A system programming language is like any other programming language except it p
 
 **What others tell about rust**
 
-Linus Torvalds, the creator of Linux, considers rust as a second language for kernel development.
+> Linus Torvalds, the creator of Linux, considers rust as a second language for kernel development. This is somewhat intriguing since Linux doesn't consider c++ as a secondary language
 
 The quotes below are from Microsoft Azure CTO Mark Russinovich in Twitter.
 
 > Speaking of languages, it's time to halt starting any new projects in C/C++ and use Rust for those scenarios where a non-GC language is required. For the sake of security and reliability. the industry should declare those languages as deprecated.
 
-Currently, rust is the best alternative to c/c++ Levin Microsoft
+> The microsoft Security Response Center (MSRC) stated “we think that Rust represents the best alternative to C and C++ currently available.
 
 Rust is most loved by developers for five years row, a survey conducted by StackOverflow.
 
 now look at the feature, the language provides.
 
 **Zero cost abstraction** 
- Abstraction in *the system* programming language doesn't impose any additional overhead. Because it's a system programming language introducing abstraction means reducing the development time, less code, expressive.
- Zero cost FFI because of lack of GC.
+ Abstraction in *the system* programming language doesn't impose any additional overhead. Because it's a system programming language introducing abstraction means reducing the development time, less code, expressive.More on [here](https://sanjuvi.github.io/Blog/posts/Zero-cost-abstraction/).
 
 **AOT**(Ahead of Time) 
 
@@ -67,7 +66,8 @@ rustc version(stable,nightly,beta)
 
  Module system to manage large programs.
 
- Because rust is a system programming language it supports conditional compilation,staticlib,dynamic link library.
+ Because rust is a system programming language it supports conditional compilation,staticlib,dynamic link
+ library.
 
 *[Rust playground](play.rust-lang.org/)* for playing with the language instantly in the web browser without installing rust locally.
 
@@ -85,13 +85,13 @@ Rust is a modern system programming language in addition to memory safe **withou
 
 - Traits are equivalent to type classes in Haskell. 
 
-- Type aliasing increase the readability by making long names with shot name wherever they are used.
+- Type aliasing increase the readability by making long names with short name wherever they are used.
 
-- Immutability,type deduction,error as code,type classes,Haskell like type classes.
+- Immutability,type deduction,error as code.
 
 **Other Features**
 
-Supports *UTF-8* out of the box.Thus we can use more languages other than english, emojis,scientific symbols.
+Supports *UTF-8* out of the box. Thus we can use more languages other than English. We can use emojis, scientific symbols, and other foreign languages.
 
 **Ergonomics** to use language features than in the c/c++ counterparts.
 
@@ -103,7 +103,7 @@ Supports *UTF-8* out of the box.Thus we can use more languages other than englis
 
 *Robust error handling strategies* through Result & Option Type,using from ,into traits through ? operator.You never forgot to check error as the compiler forces you to do it ,the exhaustive nature of pattern matching.
 
-*[Crates.io](https://crates.io)* a package registry for rust opensource libraries which cargo uses.
+*[Crates.io](https://crates.io)* a package registry for rust opensource libraries which cargo uses interanlly when building.
 
 *Backward compatibility*-This is important for evolving language feature as well as not breaking the code due to introducing new features into the language.This is reason why c/C++ barely introduces any major features or it will break the old code since it's already span millions of lines of code in production.
 
@@ -113,11 +113,11 @@ Supports *UTF-8* out of the box.Thus we can use more languages other than englis
 
 *Compile errors* contain rich information about what went wrong ,where that happened if code doesn't compile and also suggests fixing that.This is important since rust introduces unique concepts Like **ownership, borrowing,lifetime** to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bugs at compile time.Don't worry if those words are strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about [compile errors](https://doc.rust-lang.org/error_codes/error-index.html).
 
-Rust **wasm-bindgen** library generate webassembly -It's a portable runtime for web,desktop,cloud,blockchain where isolation,startup time are important.Webassembly runtime *wasmtime* itself is written in rust.
+Rust **wasm-bindgen** library generate **webassembly** -It's a portable runtime for web,desktop,cloud,blockchain where isolation,startup time are important.Webassembly runtime *wasmtime* itself is written in rust.
 
-Because most of the errors are moved to compile time ,they are unlikely to crash at runtime.Like haskell once it's compiled it's just work.
+Because most of the errors are moved to compile time ,they are unlikely to crash at runtime and thus reliable for embedded systems reliable.Like haskell once it's compiled it's just work.
 
-Last but not least Rust is a green language i.e it's very **energy efficient** after c.It's important characteristic to consider since most of the world communicates through software.It's impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.
+Last but not least Rust is a green language i.e it's very **energy efficient** after c.It's important characteristic to consider since most of the world communicates through software.It's impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.In the case of cloud computing writing software in rust means low carbon footprints like c but safety as well as less cloud bills as rust consume less memories.
 
 I think that rust is going to be a programming language that c++ creator anticipated in his paper "History of c++" at end of the paper.
 
