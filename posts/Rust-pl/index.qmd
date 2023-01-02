@@ -67,11 +67,11 @@ rustc version(stable,nightly,beta)
 
  Module system to manage large programs.
 
- Because rust is a system programming language it supports condtional compilation,staticlib,dynamic library .
+ Because rust is a system programming language it supports condtional compilation,staticlib,dynamic link library .
 
 *[Rust playground](play.rust-lang.org/)* for playing with the language instantly in the web browser without installing rust on local.
 
-Rust is a modern system programming language in addition to memory safe without using Garbage Collector.Is modern in a sense that these features are available in high level dynamic programming language not implemented in system programming lanaguage.Functional programming features are include(In the context of haskell-a pure functional programming language)
+Rust is a modern system programming language in addition to memory safe **without using Garbage Collector**.Is modern in a sense that these features are available in high level dynamic programming language not implemented in system programming lanaguage.Functional programming features are include(In the context of haskell-a pure functional programming language)
 
 - Unit type-A function without explit return type returns unit type '()-a empty tuple'.It's like void in c/c++
 
@@ -95,7 +95,7 @@ Supports *UTF-8* out of the box.Thus we can use more languages other than englis
 
 **Ergonomics** to use language feature than in the c/c++ counterparts.
 
-*Generics* Reduce code duplication.Supports static dispatch and virtual dispatch via trait object at runtime.
+*Generics* Reduce code duplication.Supports static dispatch along with compiler optimization and virtual dispatch via trait object at runtime.
 
 *Hygienic Macros*-To generate boilerplate rust code for you ,expanded when compiling so your code looks clean.
 
@@ -111,7 +111,7 @@ Supports *UTF-8* out of the box.Thus we can use more languages other than englis
 
 *[Rust foundation](https://foundation.rust-lang.org/)* is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future proof language.
 
-*Compile errors* contain rich information about what went wrong ,where that happened if code doesn't compile and also suggest to fix that.This is important since rust introduce unique concepts Like ownership,borrow,lifetime to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bug at compile time.Don't worry if those words strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about [compile errors](https://doc.rust-lang.org/error_codes/error-index.html).
+*Compile errors* contain rich information about what went wrong ,where that happened if code doesn't compile and also suggest to fix that.This is important since rust introduce unique concepts Like **ownership,borrowing,lifetime** to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bugs at compile time.Don't worry if those words strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about [compile errors](https://doc.rust-lang.org/error_codes/error-index.html).
 
 Rust **wasm-bindgen** library generate webassembly -It's a portable runtime for web,desktop,cloud,blockchain where isolation,startup time is important.Webassembly runtime *wasmtime* itself written in rust.
 

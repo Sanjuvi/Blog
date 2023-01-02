@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../about.html">
- <span class="menu-text">about.html</span></a>
+ <span class="menu-text">Sanjeevi</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -168,9 +168,9 @@ ul.task-list li input[type="checkbox"] {
 <p><em>RustDoc</em> Generating documents embedded in rust source code via ‘///’ then rendering on Doc.rs</p>
 <p>Build in testing framework via <em>test</em> macros</p>
 <p>Module system to manage large programs.</p>
-<p>Because rust is a system programming language it supports condtional compilation,staticlib,dynamic library .</p>
+<p>Because rust is a system programming language it supports condtional compilation,staticlib,dynamic link library .</p>
 <p><em><a href="play.rust-lang.org/">Rust playground</a></em> for playing with the language instantly in the web browser without installing rust on local.</p>
-<p>Rust is a modern system programming language in addition to memory safe without using Garbage Collector.Is modern in a sense that these features are available in high level dynamic programming language not implemented in system programming lanaguage.Functional programming features are include(In the context of haskell-a pure functional programming language)</p>
+<p>Rust is a modern system programming language in addition to memory safe <strong>without using Garbage Collector</strong>.Is modern in a sense that these features are available in high level dynamic programming language not implemented in system programming lanaguage.Functional programming features are include(In the context of haskell-a pure functional programming language)</p>
 <ul>
 <li><p>Unit type-A function without explit return type returns unit type ‘()-a empty tuple’.It’s like void in c/c++</p></li>
 <li><p>pattern matching-Pattern must be exhaustive,cover all possible cases otherwise got compile error.</p></li>
@@ -184,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Other Features</strong></p>
 <p>Supports <em>UTF-8</em> out of the box.Thus we can use more languages other than english,emojies,scientific symbols.</p>
 <p><strong>Ergonomics</strong> to use language feature than in the c/c++ counterparts.</p>
-<p><em>Generics</em> Reduce code duplication.Supports static dispatch and virtual dispatch via trait object at runtime.</p>
+<p><em>Generics</em> Reduce code duplication.Supports static dispatch along with compiler optimization and virtual dispatch via trait object at runtime.</p>
 <p><em>Hygienic Macros</em>-To generate boilerplate rust code for you ,expanded when compiling so your code looks clean.</p>
 <p><em>Closure</em>-A anonymous function.You can do interesting thing with them without worrying about safety.</p>
 <p><em>Robust error handling strategies</em> through Result &amp; Option Type,using from ,into traits through ? operator.You never forgot to check error as the compiler force you to do it ,the exhaustive nature of pattern matching.</p>
@@ -192,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Backward compatibility</em>-This is important for to evolve language feature as well as not breaking the code due to introducing new feature into the language.This is reason why c/C++ barely introduce any major features or it will break the old code since it’s already span millions of lines code in production.</p>
 <p><strong>Automatic scoped management</strong> for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that(More on that later).It’s <em>RAII</em>(Resource acquistion is intialization) principle from c++ for managing resources.</p>
 <p><em><a href="https://foundation.rust-lang.org/">Rust foundation</a></em> is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future proof language.</p>
-<p><em>Compile errors</em> contain rich information about what went wrong ,where that happened if code doesn’t compile and also suggest to fix that.This is important since rust introduce unique concepts Like ownership,borrow,lifetime to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bug at compile time.Don’t worry if those words strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about <a href="https://doc.rust-lang.org/error_codes/error-index.html">compile errors</a>.</p>
+<p><em>Compile errors</em> contain rich information about what went wrong ,where that happened if code doesn’t compile and also suggest to fix that.This is important since rust introduce unique concepts Like <strong>ownership,borrowing,lifetime</strong> to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bugs at compile time.Don’t worry if those words strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about <a href="https://doc.rust-lang.org/error_codes/error-index.html">compile errors</a>.</p>
 <p>Rust <strong>wasm-bindgen</strong> library generate webassembly -It’s a portable runtime for web,desktop,cloud,blockchain where isolation,startup time is important.Webassembly runtime <em>wasmtime</em> itself written in rust.</p>
 <p>Because most of the errors are moved to compile time ,they unlikely to crash at runtime.Like haskell once it’s compiles it’s just work.</p>
 <p>Last but not least is Rust is a green language i.e it’s very <strong>energy efficient</strong> after c.It’s important characteristics to consider since most of the world communicate through softwares.It’s impact is huge since IoT on scale of billions thus reducing carbon footprints as well as provides safety.</p>
