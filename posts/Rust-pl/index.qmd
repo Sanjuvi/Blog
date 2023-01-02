@@ -5,7 +5,7 @@ date: "2023-01-01"
 categories: [Theory]
 image: "image.svg"
 ---
-Rust is a emerging new system programming language.But what is system programming language?
+**Rust** is a emerging new system programming language.But what is system programming language?
 A system programming language is like any other programming langauge except it provides full control over hardware ,manual memory management ,abstraction without overhead to implement system level software,run on bare metal(Without any operating system).So why another system programming language since we have c/c++.
 
 **What others tells about rust**
