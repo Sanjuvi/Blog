@@ -4,6 +4,9 @@ project:
 
 website:
   title: "Home"
+  twitter-card: true
+  open-graph: true
+  favicon: logo.jpeg
   site-url: "https://sanjuvi.github.io/Blog/"
   navbar:
     right:

@@ -79,7 +79,7 @@ Rust is a modern system programming language in addition to memory safe **withou
 
 - Algebraic data types(Enums)-This is useful in handling errors since rust doesn't have a nullpointer. Super handy with pattern matching.
 
-- lazy evaluation-Iterators in rust are lazy, they are evaluated as they are requested not at once.
+- lazy evaluation-Iterators in rust are lazy, they are evaluated as they are requested not at once unless consumed otherwise.
 
 - Rust is an expression-oriented language. This makes the code look cleaner.
 
@@ -89,7 +89,7 @@ Rust is a modern system programming language in addition to memory safe **withou
 
 - Immutability,type deduction,error as code.
 
-**Other Features**
+**Other Features and Community**
 
 Supports *UTF-8* out of the box. Thus we can use more languages other than English. We can use emojis, scientific symbols, and other foreign languages.
 
@@ -109,17 +109,17 @@ Supports *UTF-8* out of the box. Thus we can use more languages other than Engli
 
 **Automatic scoped management** for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that(More on that later).It's *RAII*(Resource acquistion is initialization) principle from c++ for managing resources.
 
-*[Rust Foundation](https://foundation.rust-lang.org/)* is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future-proof language.
+*[Rust Foundation](https://foundation.rust-lang.org/)* is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify and others.Rust is a future-proof language.
 
 *Compile errors* contain rich information about what went wrong ,where that happened if code doesn't compile and also suggests fixing that.This is important since rust introduces unique concepts Like **ownership, borrowing,lifetime** to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bugs at compile time.Don't worry if those words are strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about [compile errors](https://doc.rust-lang.org/error_codes/error-index.html).
 
-Rust **wasm-bindgen** library generate **webassembly** -It's a portable runtime for web,desktop,cloud,blockchain where isolation,startup time are important.Webassembly runtime *wasmtime* itself is written in rust.
+Rust **wasm-bindgen** library generate **[Webassembly](https://webassembly.org/)**.It's a portable runtime for web, desktop, cloud, and blockchain where isolation and startup time is important. Rust has the best toolchain for web assembly than other languages. Web assembly runtime *wasmtime, Cranelift* itself is written in rust.
 
 Because most of the errors are moved to compile time ,they are unlikely to crash at runtime and thus reliable for embedded systems reliable.Like haskell once it's compiled it's just work.
 
-Last but not least Rust is a green language i.e it's very **energy efficient** after c.It's important characteristic to consider since most of the world communicates through software.It's impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.In the case of cloud computing writing software in rust means low carbon footprints like c but safety as well as less cloud bills as rust consume less memories.
+Last but not least Rust is a **[green language](https://dl.acm.org/doi/10.1145/3136014.3136031)** i.e it's very **energy efficient** after c.It's important characteristic to consider since most of the world communicates through software.It's impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.In the case of cloud computing writing software in rust means low carbon footprints like c but safety as well as less cloud bills as rust consume less memories.
 
-I think that rust is going to be a programming language that c++ creator anticipated in his paper "History of c++" at end of the paper.
+I think that **rust** is going to be a **programming language** that c++ creator *anticipated* in his paper "History of c++" at end of the paper.
 
 The trade off that accepts before rust came:
 

@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../logo.jpeg" rel="icon" type="image/jpeg">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,6 +64,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Home - What is Rust?">
+<meta property="og:description" content="Rust is an emerging new system programming language. But what is a system programming language?">
+<meta property="og:image" content="https://sanjuvi.github.io/Blog/posts\Rust-pl\image.svg">
+<meta property="og:site-name" content="Home">
+<meta name="twitter:title" content="Home - What is Rust?">
+<meta name="twitter:description" content="Rust is an emerging new system programming language. But what is a system programming language?">
+<meta name="twitter:image" content="https://sanjuvi.github.io/Blog/posts\Rust-pl\image.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -180,13 +189,13 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Unit type-A function without explicit return type returns unit type ‘()-an empty tuple’.It’s like a void in c/c++</p></li>
 <li><p>pattern matching-Pattern must be exhaustive,cover all possible cases otherwise get a compile error.</p></li>
 <li><p>Algebraic data types(Enums)-This is useful in handling errors since rust doesn’t have a nullpointer. Super handy with pattern matching.</p></li>
-<li><p>lazy evaluation-Iterators in rust are lazy, they are evaluated as they are requested not at once.</p></li>
+<li><p>lazy evaluation-Iterators in rust are lazy, they are evaluated as they are requested not at once unless consumed otherwise.</p></li>
 <li><p>Rust is an expression-oriented language. This makes the code look cleaner.</p></li>
 <li><p>Traits are equivalent to type classes in Haskell.</p></li>
 <li><p>Type aliasing increase the readability by making long names with short name wherever they are used.</p></li>
 <li><p>Immutability,type deduction,error as code.</p></li>
 </ul>
-<p><strong>Other Features</strong></p>
+<p><strong>Other Features and Community</strong></p>
 <p>Supports <em>UTF-8</em> out of the box. Thus we can use more languages other than English. We can use emojis, scientific symbols, and other foreign languages.</p>
 <p><strong>Ergonomics</strong> to use language features than in the c/c++ counterparts.</p>
 <p><em>Generics</em> Reduce code duplication. Supports static dispatch along with compiler optimization and virtual dispatch via trait object at runtime.</p>
@@ -196,12 +205,12 @@ ul.task-list li input[type="checkbox"] {
 <p><em><a href="https://crates.io">Crates.io</a></em> a package registry for rust opensource libraries which cargo uses interanlly when building.</p>
 <p><em>Backward compatibility</em>-This is important for evolving language feature as well as not breaking the code due to introducing new features into the language.This is reason why c/C++ barely introduces any major features or it will break the old code since it’s already span millions of lines of code in production.</p>
 <p><strong>Automatic scoped management</strong> for memory ,non_memory resources,locks,smart pointers are phenomenal since no human intervention is needed and also no runtime cost for that(More on that later).It’s <em>RAII</em>(Resource acquistion is initialization) principle from c++ for managing resources.</p>
-<p><em><a href="https://foundation.rust-lang.org/">Rust Foundation</a></em> is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify.and others.Rust is a future-proof language.</p>
+<p><em><a href="https://foundation.rust-lang.org/">Rust Foundation</a></em> is backed by big players that include Microsoft, Meta, Dropbox, Arm, Google, Amazon ,Shopify and others.Rust is a future-proof language.</p>
 <p><em>Compile errors</em> contain rich information about what went wrong ,where that happened if code doesn’t compile and also suggests fixing that.This is important since rust introduces unique concepts Like <strong>ownership, borrowing,lifetime</strong> to rule out use after free, double free, dangling pointer, iterator invalidation,concurrency bugs at compile time.Don’t worry if those words are strange to you as they are explained in next blog post with rust code examples.Rust includes documentation about <a href="https://doc.rust-lang.org/error_codes/error-index.html">compile errors</a>.</p>
-<p>Rust <strong>wasm-bindgen</strong> library generate <strong>webassembly</strong> -It’s a portable runtime for web,desktop,cloud,blockchain where isolation,startup time are important.Webassembly runtime <em>wasmtime</em> itself is written in rust.</p>
+<p>Rust <strong>wasm-bindgen</strong> library generate <strong><a href="https://webassembly.org/">Webassembly</a></strong>.It’s a portable runtime for web, desktop, cloud, and blockchain where isolation and startup time is important. Rust has the best toolchain for web assembly than other languages. Web assembly runtime <em>wasmtime, Cranelift</em> itself is written in rust.</p>
 <p>Because most of the errors are moved to compile time ,they are unlikely to crash at runtime and thus reliable for embedded systems reliable.Like haskell once it’s compiled it’s just work.</p>
-<p>Last but not least Rust is a green language i.e it’s very <strong>energy efficient</strong> after c.It’s important characteristic to consider since most of the world communicates through software.It’s impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.In the case of cloud computing writing software in rust means low carbon footprints like c but safety as well as less cloud bills as rust consume less memories.</p>
-<p>I think that rust is going to be a programming language that c++ creator anticipated in his paper “History of c++” at end of the paper.</p>
+<p>Last but not least Rust is a <strong><a href="https://dl.acm.org/doi/10.1145/3136014.3136031">green language</a></strong> i.e it’s very <strong>energy efficient</strong> after c.It’s important characteristic to consider since most of the world communicates through software.It’s impact is huge since IoT is on scale of billions thus reducing carbon footprints as well as providing safety.In the case of cloud computing writing software in rust means low carbon footprints like c but safety as well as less cloud bills as rust consume less memories.</p>
+<p>I think that <strong>rust</strong> is going to be a <strong>programming language</strong> that c++ creator <em>anticipated</em> in his paper “History of c++” at end of the paper.</p>
 <p>The trade off that accepts before rust came:</p>
 <p><strong>Speed, safety,Easy to use</strong>-Pick any two.Language tends to provide <strong>safety, easy of use</strong> like python,java,js but not speed. Languages like c/c++ provide <strong>speed but unsafe</strong>.For Rust -Pick three but at what cost.Rust puts lot of restrictions on the programmer side so it’s essential to learn foundational concepts of rust <em>upfront</em> to successfully compile the rust code. This is very cumbersome if you are coming from dynamic programming languages like python,java script,ruby.Stay patient,listen to the compiler and fix it.</p>
 <section id="resources-for-further-learning-about-rust" class="level2">
