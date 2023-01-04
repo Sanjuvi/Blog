@@ -46,9 +46,7 @@ As long as the unsafe sound we are free of memory-related bugs.
 
 **Tools and productivity**
  
-*Cargo* -a build tool and a package manager like Pip for python,Npm fo js but for a system PL since c/c++
- doesn't have universal supports(
-Make,Microsoft c++ package manager).
+*Cargo* -a build tool and a package manager like Pip for python,Npm fo js but for a system PL.
 
 *Clippy* command used to find non-idiomatic rust like ESLinter for js.
 
@@ -72,7 +70,7 @@ rustc version(stable,nightly,beta)
 
 *[Rust playground](play.rust-lang.org/)* for playing with the language instantly in the web browser without installing rust locally.
 
-Rust is a modern system programming language in addition to memory safe **without using Garbage Collector**. Is modern in the sense that these features are available in high-level dynamic programming languages not implemented in system programming languages. Functional programming features are included (In the context of Haskell-a pure functional programming language)
+Rust is a modern system programming language in addition to memory safe **without using Garbage Collector**. Is modern in the sense that these features are available in high-level dynamic programming languages not implemented in system programming languages(In terms of their safe use). Functional programming features are included (In the context of Haskell-a pure functional programming language)
 
 - Unit type-A function without explicit return type returns unit type '()-an empty tuple'.It's like a void in c/c++
 

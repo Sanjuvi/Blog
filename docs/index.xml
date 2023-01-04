@@ -51,7 +51,7 @@
 <li><p>Concurrency bug is detected at <strong>compile time</strong>. This is significant because concurrency bugs are much harder to reproduce as they were time-dependent (non-deterministic).There are libraries that rust provides to implement synchronization and lock-free concurrency safely without any data corruption whatsoever.</p></li>
 </ul>
 <p><strong>Tools and productivity</strong></p>
-<p><em>Cargo</em> -a build tool and a package manager like Pip for python,Npm fo js but for a system PL since c/c++ doesn’t have universal supports( Make,Microsoft c++ package manager).</p>
+<p><em>Cargo</em> -a build tool and a package manager like Pip for python,Npm fo js but for a system PL.</p>
 <p><em>Clippy</em> command used to find non-idiomatic rust like ESLinter for js.</p>
 <p><em>Rustfmt</em> command line tool to standardize coding style like pretty quick for js.</p>
 <p><em>Rustup</em> -Command line tool to install rust, rust components cargo,targets for cross-compilation, change the rustc version(stable,nightly,beta)</p>
@@ -62,7 +62,7 @@
 <p>Module system to manage large programs.</p>
 <p>Because rust is a system programming language it supports conditional compilation,staticlib,dynamic link library.</p>
 <p><em><a href="play.rust-lang.org/">Rust playground</a></em> for playing with the language instantly in the web browser without installing rust locally.</p>
-<p>Rust is a modern system programming language in addition to memory safe <strong>without using Garbage Collector</strong>. Is modern in the sense that these features are available in high-level dynamic programming languages not implemented in system programming languages. Functional programming features are included (In the context of Haskell-a pure functional programming language)</p>
+<p>Rust is a modern system programming language in addition to memory safe <strong>without using Garbage Collector</strong>. Is modern in the sense that these features are available in high-level dynamic programming languages not implemented in system programming languages(In terms of their safe use). Functional programming features are included (In the context of Haskell-a pure functional programming language)</p>
 <ul>
 <li><p>Unit type-A function without explicit return type returns unit type ‘()-an empty tuple’.It’s like a void in c/c++</p></li>
 <li><p>pattern matching-Pattern must be exhaustive,cover all possible cases otherwise get a compile error.</p></li>
