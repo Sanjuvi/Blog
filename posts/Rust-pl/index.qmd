@@ -47,7 +47,8 @@ As long as the unsafe sound we are free of memory-related bugs.
 **Tools and productivity**
  
 *Cargo* -a build tool and a package manager like Pip for python,Npm fo js but for a system PL since c/c++
- doesn't have universal supports(Make,Microsoft c++ package manager).
+ doesn't have universal supports(
+Make,Microsoft c++ package manager).
 
 *Clippy* command used to find non-idiomatic rust like ESLinter for js.
 
@@ -149,8 +150,7 @@ Open the link in a new tab by holding 'ctrl' and then click the link,if you are 
 
 [Why Discord is switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust).
 
-[System Programming in Rust:Beyond Safety](https://dl.acm.org/doi/10.1145/3139645.3139660).Use this 
- [link](https://sci-hub.se/) to download the paper.
+[Safe System Programming in Rust](https://cacm.acm.org/magazines/2021/4/251364-safe-systems-programming-in-rust/fulltext).
 
 [Energy efficiency of Rust by amazon blog](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/)
 

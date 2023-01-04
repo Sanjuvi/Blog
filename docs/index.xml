@@ -51,7 +51,7 @@
 <li><p>Concurrency bug is detected at <strong>compile time</strong>. This is significant because concurrency bugs are much harder to reproduce as they were time-dependent (non-deterministic).There are libraries that rust provides to implement synchronization and lock-free concurrency safely without any data corruption whatsoever.</p></li>
 </ul>
 <p><strong>Tools and productivity</strong></p>
-<p><em>Cargo</em> -a build tool and a package manager like Pip for python,Npm fo js but for a system PL since c/c++ doesn’t have universal supports(Make,Microsoft c++ package manager).</p>
+<p><em>Cargo</em> -a build tool and a package manager like Pip for python,Npm fo js but for a system PL since c/c++ doesn’t have universal supports( Make,Microsoft c++ package manager).</p>
 <p><em>Clippy</em> command used to find non-idiomatic rust like ESLinter for js.</p>
 <p><em>Rustfmt</em> command line tool to standardize coding style like pretty quick for js.</p>
 <p><em>Rustup</em> -Command line tool to install rust, rust components cargo,targets for cross-compilation, change the rustc version(stable,nightly,beta)</p>
@@ -104,7 +104,7 @@
 <p><a href="https://blog.rust-lang.org/2015/04/24/Rust-Once-Run-Everywhere.html">Seamless Integration with c</a></p>
 <p><a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;ved=2ahUKEwiywIqwmab8AhWn2DgGHVPKBYQQFnoECCsQAQ&amp;url=https%3A%2F%2Fwww.stroustrup.com%2Fhopl2.pdf&amp;usg=AOvVaw3plr2I2rXY4sbYfqb3dGKs">History of c++</a></p>
 <p><a href="https://discord.com/blog/why-discord-is-switching-from-go-to-rust">Why Discord is switching from Go to Rust</a>.</p>
-<p><a href="https://dl.acm.org/doi/10.1145/3139645.3139660">System Programming in Rust:Beyond Safety</a>.Use this <a href="https://sci-hub.se/">link</a> to download the paper.</p>
+<p><a href="https://cacm.acm.org/magazines/2021/4/251364-safe-systems-programming-in-rust/fulltext">Safe System Programming in Rust</a>.</p>
 <p><a href="https://aws.amazon.com/blogs/opensource/sustainability-with-rust/">Energy efficiency of Rust by amazon blog</a></p>
 
 
