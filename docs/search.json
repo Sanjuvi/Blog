@@ -18,7 +18,7 @@
     "href": "posts/Rust-pl/index.html#resources-for-further-learning-about-rust",
     "title": "What is Rust?",
     "section": "Resources for further learning about rust",
-    "text": "Resources for further learning about rust\nOpen the link in a new tab by holding ‘ctrl’ and then click the link,if you are using a mouse then just click a rolling button.\nRust official Website\nFree high quality Rust book\nProgramming rust book\nWhy scientist turns into rust by Nature\nWhy rust so popular by stackoverflow\nStability Without stagnation\nRust Ergonomics\nSeamless Integration with c\nHistory of c++\nWhy Discord is switching from Go to Rust.\nEnergy efficiency of Rust by amazon blog"
+    "text": "Resources for further learning about rust\nOpen the link in a new tab by holding ‘ctrl’ and then click the link,if you are using a mouse then just click a rolling button.\nRust official Website\nFree high quality Rust book\nProgramming rust book\nWhy scientist turns into rust by Nature\nWhy rust so popular by stackoverflow\nStability Without stagnation\nRust Ergonomics\nSeamless Integration with c\nHistory of c++\nWhy Discord is switching from Go to Rust.\nSystem Programming in Rust:Beyond Safety.Use this link to download the paper.\nEnergy efficiency of Rust by amazon blog"
   },
   {
     "objectID": "posts/Zero-cost-abstraction/index.html",

@@ -149,5 +149,7 @@ Open the link in a new tab by holding 'ctrl' and then click the link,if you are 
 
 [Why Discord is switching from Go to Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust).
 
+[System Programming in Rust:Beyond Safety](https://dl.acm.org/doi/10.1145/3139645.3139660).Use this [link](sci-hub.se/) to download the paper.
+
 [Energy efficiency of Rust by amazon blog](https://aws.amazon.com/blogs/opensource/sustainability-with-rust/)
 

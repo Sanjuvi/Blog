@@ -16,7 +16,7 @@ languages are more secure than languages that are not memory safe.
 
 Memory unsafe languages like c/c++ 
 
-Raw pointers are root cause of the memory safety violation since allocating heap data involves pointers.Raw pointer as the name suggest ,carry no information other than pointing to the dynamically allocated data.So accessing elements outside of the boundary,lifetime of a pointer not controlled by compiler.They are too unsrestricted,this is useful for interacting with hardware since harware inherently unsafe only 0s and 1s nothing more,that's why rust has **Unsafe** escape hatch to break the compiler restriction and they are insanely fast.
+Raw pointers are root cause of the memory safety violation since allocating heap data involves pointers.Raw pointer as the name suggest ,carry no information other than pointing to the dynamically allocated data.So ownership,lifetime of a pointer not controlled by compiler.They are too unsrestricted,this is useful for interacting with hardware since harware inherently unsafe only 0s and 1s nothing more,that's why rust has **Unsafe** escape hatch to break the compiler restriction and they are insanely fast as fast as the hardware allowed.
 
 Advances in type theories helps to mitigate memory related errors statically by the type systems.
 
