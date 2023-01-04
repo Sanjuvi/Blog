@@ -63,9 +63,9 @@ No need to worry about memory-related bugs at runtime(though not all bugs are ad
 # Pros of Manual Memory Management
 Predictable performance of memory allocation and deallocation thus efficient use of resources.
  
-A program's performance can be improved if most of the bugs are moved to compile time rather than runtime. For example *safe* **rust** refuse to compile if the program has a dangling pointer.
+A program's performance can be improved if most of the bugs are moved to compile time rather than runtime. For example *safe* **rust** refuse to compile if the program has a dangling pointer and other memory error.
 
-I hope you understand the reason why c/c++ is used to write operating systems, kernels, boot loaders, networking, file systems, database, and many low-level kinds of stuff that get the most out of available hardware without imposing any additional overhead even though they are unsafe.
+I hope you understand the reason why c/c++ is used to write operating systems, kernels, boot loaders, networking, file systems, database, game engines ,embedded systems and many low-level kinds of stuff that get the most out of available hardware without imposing any additional overhead even though they are unsafe.
 
 ## References
  - <a href="https://blog.rust-lang.org/2015/05/11/traits.html" target="_blank">Zero cost abstraction in Rust blog</a> 

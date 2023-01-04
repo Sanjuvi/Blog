@@ -211,9 +211,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>Memory unsafe languages like c/c++</p>
 <p>Raw pointers are root cause of the memory safety violation since allocating heap data involves pointers.Raw pointer as the name suggest ,carry no information other than pointing to the dynamically allocated data.So accessing elements outside of the boundary,lifetime of a pointer not controlled by compiler.They are too unsrestricted,this is useful for interacting with hardware since harware inherently unsafe only 0s and 1s nothing more,that’s why rust has <strong>Unsafe</strong> escape hatch to break the compiler restriction and they are insanely fast.</p>
+<p>Advances in type theories helps to mitigate memory related errors statically by the type systems.</p>
 <p>Typed Pointer -Pointer only contain values that are allowed by types(i32-f32-4bytes,i64-f64-8bytes).For eg,in c if you declared int pointer and using the value without giving intial values contains random data.That random data contains data only values that are representable by int type,not any type ,but that’s undefinde behaviour contains any random integer value.</p>
-<p>Smart Pointers-Resource Acquistion is Allocation(RAII).In case of c++,samrt pointers responsible for cleaning the memory without programmer intervention.Ther is Gc Required thus deterministic.</p>
-<p>Memory allocations or pointers are ergonomics to use in rust than in c/c++ and also memory safe.There is no new/delete or malloc/free keyword to allocate memory on the heap.In c/c++ we allocate the memory size of function,writing or accessing beyond allocated memory is a bug.But in rust when we add more data(writing) the capacity is automatically increased.Some rust basic pointers, - <strong>Owned pointers</strong> contains 1) pointer to the heap allocated data,2) length of currently stored items, 3) capacity,how much memory is allocated from the Operating system.</p>
+<p>Smart Pointers-Resource Acquistion Is Initialization(RAII).In case of c++,samrt pointers responsible for cleaning the memory without programmer intervention.No GC is required ,it’s deterministic.</p>
+<p>Memory allocations or pointers are ergonomics to use in rust than in c/c++ and also memory safe.There is no explicit equivalent new/delete or malloc/free keyword to allocate memory on the heap.Allocation and deallocation of memories in rust is automated by the compiler at compile time.Rust provide abstraction for pointers. .Some rust basic pointers, - <strong>Owned pointers</strong> contains 1) pointer to the heap allocated data,2) length of currently stored items, 3) capacity,how much memory is allocated from the Operating system.</p>
 <ul>
 <li><strong>Slice pointers</strong> are fat pointers contains 1)pointer to the heap allocated data but not owned,2)length the of items it’s borrowed currently.</li>
 </ul>
@@ -326,7 +327,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Rust type system helps prevents logical error.For example if a expression only expect Bool type if you are pass anything other than bool it will be type mismatch (Expect bool,but found what you pass). Using assignment operator instead of equality operator causes type mismatch error.</p>
 <p>Undefined behaviour ,loss of accuracy due to Casting:</p>
 <p>Rust never converts types implicitly. You must do it explicitly using <em>as</em> keyword or TryFrom trait.Conversions are not bidirectional meaning converting bool to integer is ok but not vice versa,trying to that cause compiler error.</p>
-<p>Concurrency Bug: Data Inconsistent,Race Condtion,Data Races,DeadLock,</p>
+<p>Concurrency Bug: Data Inconsistent-Race Condition,Data Races,DeadLock,</p>
+<p>time of check to time of use(TOCTTOU)-A race condition bug.Without <strong>atomic</strong> synchronization,it deliberately fail.Atomic sync ensure that some operation performed before other operation take that result to be valid.(Without login first,we won’t show the details).</p>
+<p>If we want to increament the count of values 8 times.Here we don’t care about race condition since either the thread running first it’s still counting 8 times.</p>
 <p>Accessing enum fields is fobidden.The only way to access is through pattern matching.This ensure that handling</p>
 <p>How GC language save you from some memory bugs but not Other bugs like Concurrency. In Gc collected language we never encounter use after bugs cause only when reference counting is zero the memory is destroyed so no other reference to it.In that time whenever we use that variable it is valid.So no double free error. So there is no memory leak but not always for Eg:Sockets,file handlers not references but they are resource they need to be cleaned once done with it.(With python,end ruby)</p>
 <p>But Gc Language doesn’t save you from concurrency bugs,Resources like files,sockets,databases without putting restriction on the design of the language like immutable data structure,lifetime of an objects,Scoped objects,synchronization.But they are not forced by the language runtime thus it’s easy to make mistake.</p>
@@ -334,6 +337,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Just using memory safe languages makes certain memory related bugs not existed in the first place.But when writing performance critical software,the choices are include c/c++ but they are not safe.rust.</p>
 <p>There is reason why android developers wite android apps using java which provide memory safty through GC.They are just abstraction(API) provided by the Andoid kernel wwhich itself written in c/c++ in that way we won’t introduce any above mentioned memory bugs as long as Java Native Interface are sound.</p>
 <p>Apple also introduce new langauge to avoid the creating memory bug in the first place.Swift is memory safe language using deterministic approach to manage memory.</p>
+<p><a href="https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html?m=1">Memory Safe Languages in Android 13</a>.</p>
 
 
 </section>
