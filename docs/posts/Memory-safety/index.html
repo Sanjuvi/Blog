@@ -153,8 +153,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About Me</span></a>
+    <a class="nav-link" href="https://twitter.com/PySanjeevi/"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text">Twitter</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/sanjeevi-%E0%AE%9A%E0%AE%9E%E0%AF%8D%E0%AE%9A%E0%AF%80%E0%AE%B5%E0%AE%BF-01a7b813b/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text">LinkedIn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/Sanjuvi/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text">Github</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -230,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Double free</li>
 <li>Memory leak</li>
 </ul>
-<p>The above errors are mitigated by memory safe langauges which uses <strong>Garbage Collector</strong>.What’s so unique about rust is that these errors are ruled out at compile time except overflow which determined at runtime.This is important distinction that makes rust different from dynamic programming language and c/c++.Now look at how rust prevent this.</p>
+<p>The above errors are mitigated by memory safe langauges which uses <strong>Garbage Collector</strong> though not all.What’s so unique about rust is that these errors are ruled out at compile time except overflow which determined at runtime.This is important distinction that makes rust different from dynamic programming language and c/c++.Now look at how rust prevent this.Don’t worry about the rust syntax now.</p>
 <p><strong>Buffer Overflow</strong></p>
 <p>Accessing elements that are not part of your data ,whether it is stored on stack or heap,is an memory error.It will crash the system since we were reading or writing memory that are invalid inputs and it leads to security vulnerability.Let’s try to access elements both from stack allocated and heap allocated data in rust.Notes on what is <a href="https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#the-stack-and-the-heap">stack and heap</a>,if you are curious what they are.Use this <a href="https://play.rust-lang.org/">link</a> to execute the code yourself in browser.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> main()<span class="op">{</span></span>
@@ -252,9 +263,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   <span class="co">//Only 8,6,32,64,128 bits are available for integer</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>   <span class="pp">println!</span>(<span class="st">"{}"</span><span class="op">,</span>signed_8bit_Max<span class="op">+</span><span class="dv">1</span>)<span class="op">;</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Adding or subtracting one to the maximum or minimum values of any integer bits causes overflow.In debug mode rust compile with error message.Floating points are different ,they represent infinites values.IEEE standard provides way to handle that.</p>
+<p>Adding or subtracting one to the maximum or minimum values of any integer bits respectively causes overflow.In debug mode rust compile with error message.Floating points are different ,they represent infinites values.IEEE standard provides way to handle that.</p>
 <p><strong>Use after free</strong></p>
-<p>This bug is happen when accessing heap or dynamically allocated data after it is freed or after released to operating system.In c/c++ accessing values after freeing memory causes runtime error.But in rust it’s compile time error.Why this is a bug,once heap memory is released the operating system the memory is uninitialized or used by other program once it’s freed.So accessing the freed memory crash the system,this causes segfaults in c/c++ when ran.How rust prevent this at compile.Let’s look at the code below,</p>
+<p>This bug is happen when accessing heap or dynamically allocated data after it is freed or after released to operating system.In c/c++ accessing values after freeing memory causes runtime error.But in rust it’s compile time error.Why this is a bug,once heap memory is released to the operating system the memory is uninitialized or used by other program once it’s freed.So accessing the freed memory crash the system,this causes segfaults in c/c++ when ran.How rust prevent this at compile.Let’s look at the code below,</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> main()<span class="op">{</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> s<span class="op">=</span><span class="dt">String</span><span class="pp">::</span>from(<span class="st">"Rustacean"</span>)<span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  call(s)<span class="op">;</span></span>
@@ -263,9 +274,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> call(s<span class="op">:</span><span class="dt">String</span>)<span class="op">{</span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span>push(<span class="ch">'s'</span>)<span class="op">;</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span><span class="co">//When the owner of heap allocated data goes out of scope,it's freed automatically.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Rust won’t compile this code.Without using garbage collector,rust can prevent this.</p>
+<p>Rust won’t compile this code.Without using garbage collector,rust can prevent this at compile time.</p>
 <p><strong>Dangling pointer</strong></p>
-<p>Returning or storing reference to the pointer is a bad idea,when they are used after freeing the memory in c/c++.This is called dangling pointers since they pointing at invalidate memory.But rust refuse to compile at all.</p>
+<p>Returning or storing reference to the pointer is a bad idea,when they are used after freeing the memory in c/c++.This is called dangling pointers since they pointing at invalidate memory.But rust refuse to compile at all with this bug.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">//Returning reference to the caller</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> main()<span class="op">{</span></span>
@@ -292,16 +303,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span><span class="co">//here only n will freed not both m and n.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Drop</em> is quivalent of free,delete in rust.The rust compiler insert the drop automatically when the owner goes out of scope.(Scope -a region where it’s valid).This bug not introduced in GCed laguage where GC only clean the memory when there is no reference to that object but it’s not predictable.</p>
 <p><strong>Memory leak</strong>:</p>
-<p>In c/c++ forgot to release the memory to the os once we done with it using free or delete result in crash ,memory leaks.Continuous resource using eg:Forgot to close Sockets , Files , Database ,Lock leads to crash. It will consume the memory for longer than neccessary which prevents other porgram to use the resources.Rust uses scoped management for releasing memory , sockets, files, locks when goes out of scope.Garabge collector only help you with memory errors not resources.Python <strong>with</strong> statement used to release the resources which are not memory as part of the garbage collector.</p>
+<p>In c/c++ forgot to release the memory to the os once we done with it using free or delete result in crash ,memory leaks.Continuous resource using eg:Forgot to close Sockets , Files , Database , Lock leads to undefined behaviour.It will consume the memory for longer than neccessary which prevents other porgram to use the resources.Rust uses scoped management for releasing memory and other resources when they are goes out of scope.Garabge collector only help you with memory errors not resources.In python <strong>with</strong> statement used to release the resources when scope ends,other wise it’s still uses that file until terminate the program.Other languages provide similar mechanism to handle resources.</p>
 <p><strong>Use of Uninitialized Variable</strong></p>
 <p>If you declare a varibale it’s uninitialized if initial value not given by the programmer.When using that value it will crash or create backdoor for hacker to take control over our machine.GCed language use control flow analyse to prevent using uninitialized variables.Rust do the same.Uninitialized pointers are called wild pointers.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> main()<span class="op">{</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> m<span class="op">:</span><span class="dt">i32</span><span class="op">;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="pp">println!</span>(<span class="st">"{}"</span><span class="op">,</span>m)<span class="op">;</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You get a compile time error.The type annotation is needed since without initializing variable with value,rust won’t infer the type of the variable.</p>
+<p>You get a compile time error.The type annotation is needed here since without initializing variable with value,rust won’t infer the type of the variable.</p>
 <p><strong>Iterator Invalidation</strong></p>
-<p>Create a data structure.pass them to the function as two perameters.the same data structure try to add elements to it at each loop sate but it’s definitely run beacause the loop counts is increased each time a loop enters the body.But it’s not the problem though,it is using after freed memory whenever the vector doesn’t have space to store it ,it will move to new place then shared pointer reading invalid memory if we are allowed this operation it’s write data to other data structure.Because rust have restriction that Either unique mutable or multiple Immuatable But not both.</p>
+<p>Create a data structure.pass them to the function as two perameters.the same data structure try to add elements to it at each loop sate but it’s infinitely run beacause the loop counts is increased each time a loop enters the body.But it’s not the problem though,it is using after freed memory whenever the vector doesn’t have space to store it ,it will move to new place then shared pointer reading invalid memory if we are allowed this operation it’s write data to other data structure.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode rust code-with-copy"><code class="sourceCode rust"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> main()<span class="op">{</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">let</span> <span class="kw">mut</span> v<span class="op">:</span><span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">usize</span><span class="op">&gt;</span> <span class="op">=</span> <span class="pp">vec!</span>[<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span>]<span class="op">;</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">let</span> v1<span class="op">:</span><span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">usize</span><span class="op">&gt;</span> <span class="op">=</span> <span class="pp">vec!</span>[<span class="dv">1</span><span class="op">,</span><span class="dv">23</span><span class="op">,</span><span class="dv">3</span>]<span class="op">;</span></span>
@@ -310,37 +321,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a> <span class="pp">println!</span>(<span class="st">" {:?} "</span><span class="op">,</span> v)<span class="op">;</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> call(s<span class="op">:</span> <span class="op">&amp;</span><span class="kw">mut</span> <span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">usize</span><span class="op">&gt;,</span>s1<span class="op">:</span> <span class="op">&amp;</span><span class="dt">Vec</span><span class="op">&lt;</span><span class="dt">usize</span><span class="op">&gt;</span>)<span class="op">{</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="dv">0</span><span class="op">..</span>s1<span class="op">.</span>len() <span class="op">{</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        s<span class="op">.</span>push( s1[i] )<span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> s1<span class="op">.</span>iter() <span class="op">{</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        s<span class="op">.</span>push(<span class="op">*</span>i)<span class="op">;</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The above code try to add elements of v1 to v and compiles successfully.But what if we pass the same vector to the function.Try uncommenting the second function call <strong>call()</strong>,then look at what compiler says.It says,</p>
 <blockquote class="blockquote">
 <p>cannot borrow <code>v</code> as immutable because it is also borrowed as mutable.</p>
 </blockquote>
-<p>What is remarkable is that just looking at the funcion signature rust would able to detect this at compile time.Compile the above code by removing the for loop inside a function body.Rust has a restriction that either <strong>One mutable reference(write) to the object or Multiple immutable reference(read)</strong> at a time.</p>
-<p>Why this is a bug.There is two things happen either the loop run infinitely because each time the for loop runs it increase the length of the vector which is infinite since pushing elements to the same vector increase the length or crash the system ,pushing more elements to the vector increase the capacity which in turns allocate more memory from operting system then move the data to new location this is same as use after free. In c/c++ it will crash the program,dynamic programming language issue runtime error.</p>
-<section id="logical-errors" class="level2">
-<h2 class="anchored" data-anchor-id="logical-errors">Logical Errors</h2>
-<p><strong>Error Handling</strong>:</p>
-<p>Forgot to check nil,null,none whenever we access file directory(Maybe no directory at all),Database(maybe No database backend). Rust type system ensure that you never forgot to handle the error otherwise the code won’t compile.Recoverable Error through <strong>Result Type,Option Type</strong> and UnRecoverable error through panicking like accesing element past the array.</p>
-<p>Rust type system helps prevents logical error.For example if a expression only expect Bool type if you are pass anything other than bool it will be type mismatch (Expect bool,but found what you pass). Using assignment operator instead of equality operator causes type mismatch error.</p>
-<p>Undefined behaviour ,loss of accuracy due to Casting:</p>
-<p>Rust never converts types implicitly. You must do it explicitly using <em>as</em> keyword or TryFrom trait.Conversions are not bidirectional meaning converting bool to integer is ok but not vice versa,trying to that cause compiler error.</p>
+<p>What is remarkable is that just looking at the funcion signature rust would able to detect this.Compile the above code by removing the for loop inside a function body.Rust has a restriction that either <strong>One mutable reference(write) to the object or Multiple immutable reference(read)</strong> at a time.</p>
+<p>Why this is a bug.There is two things happen either the loop run infinitely because each time the for loop runs it increase the length of the vector which is infinite since pushing elements to the same vector increase the length or crash the program ,pushing more elements to the vector increase the capacity which in turns allocate more memory from operting system then move the data to new location this is same as use after free. In c/c++ it will crash the program,dynamic programming language issue a runtime error.Run this python code in your editor or online python interpreter</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> data: <span class="co">#reads the data i.e iterating </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    data.append(i) <span class="co">#after this the list length is increased thus for loop iteration.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Concurrency Bug: Data Inconsistent-Race Condition,Data Races,DeadLock,</p>
-<p>time of check to time of use(TOCTTOU)-A race condition bug.Without <strong>atomic</strong> synchronization,it deliberately fail.Atomic sync ensure that some operation performed before other operation take that result to be valid.(Without login first,we won’t show the details).</p>
-<p>If we want to increament the count of values 8 times.Here we don’t care about race condition since either the thread running first it’s still counting 8 times.</p>
-<p>Accessing enum fields is fobidden.The only way to access is through pattern matching.This ensure that handling</p>
-<p>How GC language save you from some memory bugs but not Other bugs like Concurrency. In Gc collected language we never encounter use after bugs cause only when reference counting is zero the memory is destroyed so no other reference to it.In that time whenever we use that variable it is valid.So no double free error. So there is no memory leak but not always for Eg:Sockets,file handlers not references but they are resource they need to be cleaned once done with it.(With python,end ruby)</p>
-<p>But Gc Language doesn’t save you from concurrency bugs,Resources like files,sockets,databases without putting restriction on the design of the language like immutable data structure,lifetime of an objects,Scoped objects,synchronization.But they are not forced by the language runtime thus it’s easy to make mistake.</p>
+<p>time of check to time of use(TOCTTOU)-A race condition bug.Without <strong>atomic</strong> synchronization,it deliberately fail.Atomic sync ensure that some operation performed before other operation take that result.For example without login,we can’t show the details.</p>
+<p>But Gc Language doesn’t save you from concurrency bugs,other memory resources like files,sockets,databases without putting restriction on the design of the language like immutable data structure,lifetime of an objects or scoped objects,synchronization.But they are not forced by the language runtime thus it’s easy to make mistake as long as we rely on abstracion provided by the language.wait for the festure blog posts about rust ownership,borrowing,lifetime,traits to understand the concurrency paradigm.</p>
 <p>Rust only save you from memory bugs,but not security which is still captured by testing,code reviews.</p>
-<p>Just using memory safe languages makes certain memory related bugs not existed in the first place.But when writing performance critical software,the choices are include c/c++ but they are not safe.rust.</p>
+<p>Just using memory safe languages makes certain memory related bugs not existed in the first place.But when writing performance critical software,the choices are include c/c++ but they are not safe.Now we have rust that is safe and runs on bare metal because of lack of garbage collector.</p>
 <p>There is reason why android developers wite android apps using java which provide memory safty through GC.They are just abstraction(API) provided by the Andoid kernel wwhich itself written in c/c++ in that way we won’t introduce any above mentioned memory bugs as long as Java Native Interface are sound.</p>
 <p>Apple also introduce new langauge to avoid the creating memory bug in the first place.Swift is memory safe language using deterministic approach to manage memory.</p>
 <p><a href="https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html?m=1">Memory Safe Languages in Android 13</a>.</p>
+<p><a href="https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html">Fearless concurrency with rust</a>.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

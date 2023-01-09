@@ -53,7 +53,7 @@ program)
 - Double free
 - Memory leak
 
-The above errors are mitigated by memory safe langauges which uses **Garbage Collector**.What's so unique about rust is that these errors are ruled out at compile time except overflow which determined at runtime.This is important distinction that makes rust different from dynamic programming language and c/c++.Now look at how rust prevent this.
+The above errors are mitigated by memory safe langauges which uses **Garbage Collector** though not all.What's so unique about rust is that these errors are ruled out at compile time except overflow which determined at runtime.This is important distinction that makes rust different from dynamic programming language and c/c++.Now look at how rust prevent this.Don't worry about the rust syntax now.
 
 **Buffer Overflow**
 
@@ -85,11 +85,11 @@ fn main(){
     println!("{}",signed_8bit_Max+1);
 }
  ```
-Adding or subtracting one to the maximum or minimum values of any integer bits causes overflow.In debug mode rust compile with error message.Floating points are different ,they represent infinites values.IEEE standard provides way to handle that.
+Adding or subtracting one to the maximum or minimum values of any integer bits respectively causes overflow.In debug mode rust compile with error message.Floating points are different ,they represent infinites values.IEEE standard provides way to handle that.
 
 **Use after free**
 
-This bug is happen when accessing heap or dynamically allocated data after it is freed or after released to operating system.In c/c++ accessing values after freeing memory causes runtime error.But in rust it's compile time error.Why this is a bug,once heap memory is released the operating system the memory is uninitialized or used by other program once it's freed.So accessing the freed memory crash the system,this causes segfaults in c/c++ when ran.How rust prevent this at compile.Let's look at the code below,
+This bug is happen when accessing heap or dynamically allocated data after it is freed or after released to operating system.In c/c++ accessing values after freeing memory causes runtime error.But in rust it's compile time error.Why this is a bug,once heap memory is released to the operating system the memory is uninitialized or used by other program once it's freed.So accessing the freed memory crash the system,this causes segfaults in c/c++ when ran.How rust prevent this at compile.Let's look at the code below,
 
 ```rust
 fn main(){
@@ -102,11 +102,11 @@ fn call(s:String){
 }//When the owner of heap allocated data goes out of scope,it's freed automatically.
 
 ```
-Rust won't compile this code.Without using garbage collector,rust can prevent this. 
+Rust won't compile this code.Without using garbage collector,rust can prevent this at compile time.
 
 **Dangling pointer**
 
-Returning or storing reference to the pointer is a bad idea,when they are used after freeing the memory in c/c++.This is called dangling pointers since they pointing at invalidate memory.But rust refuse to compile at all.
+Returning or storing reference to the pointer is a bad idea,when they are used after freeing the memory in c/c++.This is called dangling pointers since they pointing at invalidate memory.But rust refuse to compile at all with this bug.
 
 ```rust
 
@@ -147,8 +147,7 @@ fn main(){
 
 **Memory leak**:
 
-In c/c++ forgot to release the memory to the os once we done with it using free or delete result in crash ,memory leaks.Continuous resource using eg:Forgot to close Sockets , Files , Database ,Lock leads to crash.
-It will consume the memory for longer than neccessary which prevents other porgram to use the resources.Rust uses scoped management for releasing memory , sockets, files, locks when goes out of scope.Garabge collector only help you with memory errors not resources.Python **with** statement used to release the resources which are not memory as part of the garbage collector. 
+In c/c++ forgot to release the memory to the os once we done with it using free or delete result in crash ,memory leaks.Continuous resource using eg:Forgot to close Sockets , Files , Database , Lock leads to undefined behaviour.It will consume the memory for longer than neccessary which prevents other porgram to use the resources.Rust uses scoped management for releasing memory and other resources when they are goes out of scope.Garabge collector only help you with memory errors not resources.In python **with** statement used to release the resources when scope ends,other wise it's still uses that file until terminate the program.Other languages provide similar mechanism to handle resources. 
 
 **Use of Uninitialized Variable**
  
@@ -161,11 +160,11 @@ fn main(){
 }
 
 ```
-You get a compile time error.The type annotation is needed since without initializing variable with value,rust won't infer the type of the variable.
+You get a compile time error.The type annotation is needed here since without initializing variable with value,rust won't infer the type of the variable.
 
 **Iterator Invalidation**
 
-Create a data structure.pass them to the function as two perameters.the same data structure try to add elements to it at each loop sate but it's definitely run beacause the loop counts is increased each time a loop enters the body.But it's not the problem though,it is using after freed memory whenever the vector doesn't have space to store it ,it will move to new place then shared pointer reading invalid memory if we are allowed this operation it's write data to other data structure.Because rust have restriction that Either unique mutable or multiple Immuatable But not both.
+Create a data structure.pass them to the function as two perameters.the same data structure try to add elements to it at each loop sate but it's infinitely run beacause the loop counts is increased each time a loop enters the body.But it's not the problem though,it is using after freed memory whenever the vector doesn't have space to store it ,it will move to new place then shared pointer reading invalid memory if we are allowed this operation it's write data to other data structure.
 
 ```rust
 fn main(){
@@ -176,8 +175,8 @@ fn main(){
  println!(" {:?} ", v);
     }
 fn call(s: &mut Vec<usize>,s1: &Vec<usize>){
-    for i in 0..s1.len() {
-        s.push( s1[i] );
+    for i in s1.iter() {
+        s.push(*i);
     }
 }
 ```
@@ -185,52 +184,35 @@ The above code try to add elements of v1 to v and compiles successfully.But what
 
 >cannot borrow `v` as immutable because it is also borrowed as mutable.
 
-What is remarkable is that just looking at the funcion signature rust would able to detect this at compile time.Compile the above code by removing the for loop inside a function body.Rust has a restriction that either 
+What is remarkable is that just looking at the funcion signature rust would able to detect this.Compile the above code by removing the for loop inside a function body.Rust has a restriction that either 
 **One mutable reference(write) to the object or Multiple immutable reference(read)** at a time.
 
-Why this is a bug.There is two things happen either the loop run infinitely because each time the for loop runs it increase the length of the vector which is infinite since pushing elements to the same vector increase the length or crash the system ,pushing more elements to the vector increase the capacity which in turns allocate more memory from operting system then move the data to new location this is same as use after free.
-In c/c++ it will crash the program,dynamic programming language issue runtime error. 
+Why this is a bug.There is two things happen either the loop run infinitely because each time the for loop runs it increase the length of the vector which is infinite since pushing elements to the same vector increase the length or crash the program ,pushing more elements to the vector increase the capacity which in turns allocate more memory from operting system then move the data to new location this is same as use after free.
+In c/c++ it will crash the program,dynamic programming language issue a runtime error.Run this python code in your editor or online python interpreter
 
-## Logical Errors
-
-**Error Handling**:
- 
- Forgot to check nil,null,none whenever we access file directory(Maybe no directory at all),Database(maybe No database backend). Rust type system ensure that you never forgot to handle the error otherwise the code won't compile.Recoverable Error through **Result Type,Option Type** and UnRecoverable error through panicking like accesing element past the array.
-
-Rust type system helps prevents logical error.For example if a expression only expect Bool type if you are pass anything other than bool it will be type mismatch (Expect bool,but found what you pass). Using assignment operator instead of equality operator causes type mismatch error.
-
-Undefined behaviour ,loss of accuracy due to Casting:
-
-Rust never converts types implicitly. You must do it explicitly using *as* keyword or TryFrom trait.Conversions are not bidirectional meaning converting bool to integer is ok but not vice versa,trying to that cause compiler error.
+```python
+data=[1,2,4]
+for i in data: #reads the data i.e iterating 
+    data.append(i) #after this the list length is increased thus for loop iteration.
+```
 
 Concurrency Bug:
  Data Inconsistent-Race Condition,Data Races,DeadLock,
 
-time of check to time of use(TOCTTOU)-A race condition bug.Without **atomic** synchronization,it deliberately fail.Atomic 
-sync ensure that some operation performed before other operation take that result to be valid.(Without login first,we won't
-show the details).
+time of check to time of use(TOCTTOU)-A race condition bug.Without **atomic** synchronization,it deliberately fail.Atomic sync ensure that some operation performed before other operation take that result.For example without login,we can't show the details.
 
-If we want to increament the count of values 8 times.Here we don't care about race condition since either the thread
-running first it's still counting 8 times.
-
-Accessing enum fields is fobidden.The only way to access is through pattern matching.This ensure that handling 
-
-How GC language save you from some memory bugs but not Other bugs like Concurrency.
- In Gc collected language we never encounter use after bugs cause only when reference counting is zero the memory is destroyed
-so no other reference to it.In that time whenever we use that variable it is valid.So no double free error.
-So there is no memory leak but not always for Eg:Sockets,file handlers not references but they are resource they need
-to be cleaned once done with it.(With python,end ruby)
-
-But Gc Language doesn't save you from concurrency bugs,Resources like files,sockets,databases without putting 
-restriction on the design of the language like immutable data structure,lifetime of an objects,Scoped objects,synchronization.But they are not forced by the language runtime thus it's easy to make mistake.
+But Gc Language doesn't save you from concurrency bugs,other memory resources like files,sockets,databases without putting restriction on the design of the language like immutable data structure,lifetime of an objects or scoped objects,synchronization.But they are not forced by the language runtime thus it's easy to make mistake as long as we rely on abstracion provided by the language.wait for the festure blog posts about rust ownership,borrowing,lifetime,traits to understand the concurrency paradigm.
 
 Rust only save you from memory bugs,but not security which is still captured by testing,code reviews.
 
-Just using memory safe languages makes certain memory related bugs not existed in the first place.But when writing performance critical software,the choices are include c/c++ but they are not safe.rust.
+Just using memory safe languages makes certain memory related bugs not existed in the first place.But when writing performance critical software,the choices are include c/c++ but they are not safe.Now we have rust that is safe and runs on bare metal because of lack of garbage collector.
 
 There is reason why android developers wite android apps using java which provide memory safty through GC.They are just abstraction(API) provided by the Andoid kernel wwhich itself written in c/c++ in that way we won't introduce any above mentioned memory bugs as long as Java Native Interface are sound.
 
-
 Apple also introduce new langauge to avoid the creating memory bug in the first place.Swift is memory safe language using deterministic approach to manage memory.
 
+
+
 [Memory Safe Languages in Android 13](https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html?m=1).
+
+[Fearless concurrency with rust](https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
