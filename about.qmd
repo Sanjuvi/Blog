@@ -4,12 +4,15 @@ image: profile.jpg
 about:
   template: jolla
   links:
-      
+  
     - icon: twitter
+      text: Twitter
       href: https://twitter.com/PySanjeevi/
     - icon: linkedin
+      text: LinkedIn
       href: https://www.linkedin.com/in/sanjeevi-%E0%AE%9A%E0%AE%9E%E0%AF%8D%E0%AE%9A%E0%AF%80%E0%AE%B5%E0%AE%BF-01a7b813b/
     - icon: github
+      text: Github
       href: https://github.com/Sanjuvi/
 ---
 
