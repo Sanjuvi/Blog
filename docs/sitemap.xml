@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://sanjuvi.github.io/Blog/index.html</loc>
-    <lastmod>2023-01-09T11:07:59.197Z</lastmod>
+    <lastmod>2023-02-14T18:10:33.917Z</lastmod>
   </url>
   <url>
     <loc>https://sanjuvi.github.io/Blog/posts/Rust-pl/index.html</loc>
@@ -15,5 +15,9 @@
   <url>
     <loc>https://sanjuvi.github.io/Blog/posts/Zero-cost-abstraction/index.html</loc>
     <lastmod>2023-01-09T11:08:07.256Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sanjuvi.github.io/Blog/posts/Memory-Unsafety/index.html</loc>
+    <lastmod>2023-02-14T18:10:32.338Z</lastmod>
   </url>
 </urlset>

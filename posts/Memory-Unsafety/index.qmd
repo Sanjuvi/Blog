@@ -1,0 +1,276 @@
+---
+title: "Memory safety, what it is?"
+author: "Sanjeevi"
+date: "2023-01-02"
+categories: [Code,Theory]
+format:
+  html:
+    code-fold: true
+draft: false
+image: "image.jpg"
+---
+A snippet from [PROSSIMO](https://www.memorysafety.org/docs/memory-safety/)
+
+> Memory safety is a property of some programming languages that prevent programmers from introducing certain
+types of bugs related to how memory is used. Since memory safety bugs are often security issues, memory-safe
+languages are more secure than languages that are not memory safe.
+
+Why memory safety is a big deal?
+
+>70% of the vulnerabilities Microsoft assigns a CVE(Common Vulnerability Exposures) each year continue to be memory safety issues.  --Microsoft Security Response Centre
+
+>Around 70% of our high-severity security bugs are memory unsafety problems (that is, mistakes with C/C++ pointers). Half of those are use-after-free bugs. 
+[](https://www.chromium.org/Home/chromium-security/memory-safety/)
+
+Raw pointers are root cause of the memory safety violation since allocating heap data involves pointers.Raw pointer as the name suggest ,carry no information other than pointing to memory.So ownership,lifetime of a pointer not controlled by compiler.They are too unrestricted,this is useful for interacting with hardware since the hardware is inherently unsafe but safe through abstraction-like types, that's why rust has **Unsafe** escape hatch to break the compiler restriction.
+
+Memory allocations or pointers are ergonomics to use in rust than in c/c++ and also memory safe.There is no explicit equivalent new/delete or malloc/free keyword to allocate memory on the heap.Allocation and deallocation of memories in rust is automated by the compiler at compile time.Rust provides an abstraction for the allocation of heap memory.
+
+Advances in type theories help to mitigate memory related errors statically by the type systems without using runtime like garbage collectors.Now look at how rust-type systems prevent memory-related errors by statically i.e without actually running a program. 
+
+**Memory Related Bugs**
+
+- Using uninitialized variable
+- Null pointers
+- Buffer over-read and over-write
+- Integer Overflow
+- Use after free
+- Double free
+- Memory leak
+
+The above errors are mitigated by memory-safe languages which use **Garbage Collector** though not all. What's so unique about rust is that these errors are ruled out at compile time except overflow which is determined at runtime.This is an important distinction that makes rust different from garage collected and c/c++.Don't worry about the rust syntax now. Use this [link](https://play.rust-lang.org/) to execute the code yourself in the browser.
+
+**Use of Uninitialized Variable**
+ 
+If you declare a variable and it's uninitialized if the initial value is not given by the programmer. The uninitialized variable contains random values or may be private data.GCed language uses control flow analysis to prevent using uninitialized variables.Rust does the same. In rust the variable must be initialized before it's used.This is true for structs and enums constructors.
+
+```rust
+fn main(){
+    let m:i32;
+    //m=10;
+    println!("{}",m);
+}
+
+```
+You get a compile-time error.The type annotation is needed here since without initializing the variable with a value,rust won't infer the type of the variable.
+
+**Null pointers**
+Is a pointer that points to nothing.It's useful when something is may be not there or maybe there like Schrödinger's cat.But it's not enforced by the compiler,forgot to handle the possible results in a crash or silently continuing with wrong inputs since in c/c++ implicitly converts between types.Even in GCed languages at runtime i.e it will prevent further processing even when the subsequent task is not
+depend on them. There is no equivalent of c-NULL or c++ nullpointer or go nil in rust.It is mitigated through the type system.Rust uses a enum type to encode the logic of a null pointer.
+
+```rust
+enum Option<T>{
+Some(T),
+None
+}
+```
+Here enum is a sum type i.e either this variant or another variant not both unlike struct.So we can't dereference like this is pointer, try to do is compile the error. We won't accidentally forget to miss another variant (some **or** none).The pattern must be exhaustive i.e cover everything otherwise compiler issues an error, not a warning.This is true for as long as we rely rust abstraction.If we are not handling errors then they are guaranteed to be **non-null values**.
+
+```rust
+fn main(){
+let m=vec![1,2,3,4,5];
+println!("{:?}",m.get(5));//it returns none if the index if out of bounds otherwise returns some with elements.
+//println!("{:?}",m[5]); //This causes panic,this is a runtime error as in python.
+let i=Some(5);
+match i{
+some(i)=>println!("{i}"),
+
+}
+}
+```
+
+**Buffer Overflow**
+
+Accessing elements that are not part of your data, whether it is stored on stack or heap, is a memory error. It will lead to security vulnerability since we were reading or writing memory that is not part of our data. Let's try to access elements both from stack-allocated and heap-allocated data in rust. Notes on what is [stack and heap](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#the-stack-and-the-heap), if you are curious what they are.
+
+```rust
+fn main(){
+    let stack_data = [0,1,2,3,4];
+    let heap_data = vec![0,1,2,3,4];
+  //  let stack_invalid_data = stack_data[5];//Length of the array is 5 and it's zero-indexed.
+  //  println!("{}",stack_invalid_data);
+    let heap_invalid_data = heap_data[5];
+    println!("{}",heap_invalid_data);
+}
+```
+Rust will panic at runtime. Panicking in rust is to stop the program immediately instead of continuing further with the wrong data.
+
+**Integer Overflow**
+ 
+ Integer overflow is like the buffer overflow. Integers have limits that how many values can represent depending on the bits used to represent that. There are two integer types signed and unsigned.Signed integer(negative numbers) only represent values from $-{2}^ {(n-1)} to  +2^ {(n-1)}-1$ and unsigned integer represent values from $0 to 2^n -1$.For eg, 8-bit signed integers only represent -128 to 127 values but unsigned integers represent more values than signed integers since they start from zero.Rust std libraries provide min and max values of the signed and unsigned integers. Let's use that..
+
+ ```rust
+fn main(){
+    let signed_8bit_min = i8::MIN;
+    let signed_8bit_max = i8::MAX;
+    let unsigned_64bit_min = u64::MIN;
+    let unsigned_64bit_max = u64::MAX; 
+    //Only 8,6,32,64,128 bits are available for integer
+    println!("{}",signed_8bit_Max+1);
+}
+ ```
+Adding or subtracting one to the maximum or minimum values of any integer bits respectively causes overflow.In debug mode rust compiles with an error message.
+
+**Use after free**
+
+This bug happens when accessing heap or dynamically allocated data after it is freed or after released to the operating system.In c/c++ accessing values after freeing memory cause segfaults.But in rust it's compiling time error.Why this is a bug,once heap memory is released to the operating system the memory is uninitialized or used by another program once it's freed. So accessing the freed memory crashes the system, which causes segfaults in c/c++ when run.How rust prevents this at compile.Let's look at the code below,
+
+```rust
+fn main(){
+  let s=String::from("Rustacean");
+  call(s);
+  println!("{}",s);//Here we access s which is freed when the call scope ends.
+}
+fn call(s:String){
+    s.push('s');
+}//When the owner of heap allocated data goes out of scope,it's freed automatically.
+```
+
+Because of the single ownership restriction,when s is passed to fn the function call takes ownership so the function is responsible for cleaning the memory.But we try to access in the main function after it's transferred or moved ,which is forbidden by the rust compiler.
+Rust won't compile this code.
+
+**Dangling pointer**
+
+Returning or storing a reference to the pointer whether it is stack allocated or heap allocated is a bad idea,when they are used after freeing the memory in c/c++.This is called dangling pointers since they point at invalid memory.But rust refuses to compile at all with this bug.
+
+```rust
+
+//Returning reference to the caller
+fn main(){
+    let m=call();//pointing at anywhere if rust allowed
+    println!("{}",m);
+}
+fn call()->&'static String{
+    let m=String::from("Dangling Pointer");
+    &m
+}//This point the m is freed
+```
+```rust
+//storing reference and used after it's freed
+fn main(){
+
+    let m=String::from("Dangling");
+    let s=&m;
+    drop(m);//explicitly freed
+    //m.push_str("Fourth"); //Mutable access
+    println!("{}",s);//Here s is not valid so rust reject this code
+}
+```
+**Double free **
+
+The double free error happens when heap-allocated memory calls free or delete on that memory and then we try to free that memory again eg: Calling two free() in *c* or two delete() in *c++*.Why the heck we want to free the memory twice, humans are not machine,in large code bases programmers free the memory twice by accident. It will crash the program with segfaults because when first call to free ,it will clear the data in that location then it stores the different data in that location when some program requests memory from the operating system allocator, so after calling the second free on the same data will clear the data which may cause another program to crash and using that memory to have undefined behavior.Rust prevents this by having **single ownership** rule i.e every variable exactly has one owner except **smart pointer types**.If we assign the **movable type** to a new variable,the new variable is the new owner and invalidates the old one.Let's demonstrate how rust avoids double free.
+
+```rust
+fn main(){
+    let m=String::from("Hello,Fellows");//here heap allocated data initialized.
+    let n=m;//here m is moved to n,now m is uninitialized.exactly one drop is called when the owner goes out of scope.
+    println!("{}-{}",m,n);
+}//here only n will freed implicitly by the compiler ,not both m and n.
+```
+```rust
+fn main(){
+    let m=vec![1,2,3,5];
+    drop(m);//explicitly freed once
+    drop(m);//try to clean the memory twice ,but rust complies with 'Use of moved value'
+}
+```
+*Drop* is the rust equivalent of free, delete in c++. The rust compiler inserts the drop automatically when the owner goes out of scope.(Scope -a region where memory accesses are valid). This bug does not happen in GCed language where the  GC only cleans the memory when there is no reference to that object but it's not predictable.
+
+**Memory leak**:
+
+In c/c++ forgetting to release the memory to the os once we have done with it resulted in memory leaks. Manual memory management is efficient because we can use larger memory and then release the memory by calling delete at **predictable** point in code so that we can use memory for the further task without exhausting the system memory.But forgetting to that prevents other programs to use the resources.Look at the below code ,looks like the file is not closed and not handling failure...
+
+```rust
+use std::fs::File;
+use std::io::prelude::*;
+fn main() {
+
+create_file();
+
+}
+fn create_file()->std::io::Result<()>{
+    let mut file=File::create("text.txt")?;
+    file.write(b"There is no need to close file explicitly as there is no close method 
+The file close implicitly when the scope ends")?;
+    Ok(())
+}
+
+```
+There are no leaks here. Rust uses scoped management for releasing memory and other resources when they are goes out of scope. This is how rust manages sockets,locks,files.Garabge collector only help you with memory errors not resources.In python **with** statement used to release the resources when the scope ends,other wise it's still uses that file until the program terminates. Other languages provide similar mechanisms to handle resources other than memories.The **?** operator is an ergonomic way to handle failure in rust,on success it returns nothing i.e () ,on failure it returns early with error without further processing.
+
+**Iterator Invalidation**
+
+Create a data structure, pass them to the function as two parameters. The same data structure tries to add elements to it at each loop sate but it's infinitely run because the loop counts is increased each time a loop enters the body. But it's not the problem though, it is used after freed memory whenever the vector doesn't have space to store it , it will move to a new place then a shared pointer reads invalid memory if we are allowed this operation it's writing data to other data structures.
+
+```rust
+fn main(){
+ let mut v:Vec<usize> = vec![1,2,3];
+ let v1:Vec<usize> = vec![1,23,3];
+ call( &mut v, &v1);//passing mutable and immutable references
+ //call( &mut v,&v);
+ println!(" {:?} ", v);
+    }
+fn call(s: &mut Vec<usize>,s1: &Vec<usize>){
+    for i in s1.iter() {
+        s.push(*i);
+    }
+}
+```
+The above code tries to add elements of v1 to v and compiles successfully. But what if we pass the same vector to the function? Try uncommenting the second function call **call()**, then look at what the compiler says.It says,
+
+>cannot borrow `v` as immutable because it is also borrowed as mutable.
+
+What is remarkable is that just looking at the function signature rust would able to detect this. Compile the above code by removing the for loop inside a function body. Rust has a restriction that either 
+**One mutable reference(write) to the object or Multiple immutable reference(read)** at a time.
+
+Why this is a bug? There is two things that happen if a program is allowed, either the loop run infinitely because each time the for loop runs it increases the length of the vector which is infinite since pushing elements to the same vector increases the length, or crashes the program , pushing more elements to the vector increase the capacity which in turns allocate more memory from operating system then move the data to a new location this is same as use after free. Run this python code in your editor or online python interpreter
+
+```python
+data=[1,2,4]
+for i in data: #reads the data i.e iterating 
+    data.append(i) #after this the list length is increased thus for loop iteration.
+```
+
+**Concurrency Bug**:
+
+Concurrency bugs are related to memory bugs where without synchronization the memory access is incorrect because of a race condition where multiple threads are accessing the same memory. Writing concurrency programs is not an easy task,only experienced programmers can write still buggy though. But functional programming like haskell,erlang,elixir or imperative like go provide a better abstraction for writing concurrency without much experience in concurrency programs. But they are still misused if we are not careful.
+
+Rust forces you to use synchronization for shared memory before sharing between threads. Because of the restriction on **Aliasing and Mutatation ** we can write low level concurrency as in c/c++ but with much more safety and guarantee.In below code, there is no way to access the data inside the mutex without locking it first which gives exclusive access. Note that this is a single-threaded code.
+
+```rust
+use std::sync::Mutex;
+fn main(){
+    let i=Mutex::new(45);
+   *i+=10; //type `Mutex<{integer}>` cannot be dereferenced,We are forced to use lock on mutex
+    let l=i.lock();//Even though we lock the data inside of mutex,we still can't acess the data unless    handling the error since the return type is Result which must be hadled via pattern matching or call unwrap to get the value inside
+    //let mut l=i.lock().unwrap();//without mut we can't mutate the data 
+    *l+=10;//
+    println!("{:?}",l);
+}
+
+```
+But where do we unlock the mutex? We don't, when the scope ends the lock is unlocked automatically. The same procedure is to help to automatically close the file above.Just in three lines of code ,we can see that how rust prevent you to compile the code without using APIs properly.Rust supports more than shared memory model concurrency.
+
+But Gc Language doesn't save you from concurrency bugs, other resources like files, sockets,databases without putting a restriction on the design of the language like immutable data structure, lifetime of objects or scoped objects. But they are not forced by the language runtime thus it's easy to make mistakes.
+
+Being memory safety doesn't mean being immune to security-related problems. What about the other 30 percent of vulnerability in Microsoft and chromium, which must be mitigated by source code analysis and extensive testing?
+
+Just using memory-safe languages makes certain memory-related bugs not existed in the first place. But when writing performance-critical software, the choices include c/c++ but they are not safe by default. Now we have rust that is safe and runs on bare metal as it lacks a runtime.
+
+Android chose rust to write new native code and kotlin, java at a high level.
+
+Apple creates swift as memory safe and modern with a deterministic approach to memory management.
+
+[Rust in Android](https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html?m=1).
+
+[Rust in chromium](https://security.googleblog.com/2023/01/supporting-use-of-rust-in-chromium.html?m=1)
+
+[Fearless concurrency with rust](https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html).
+
+[Microsoft chooses Rust for writing new code](https://msrc-blog.microsoft.com/2019/07/18/we-need-a-safer-systems-programming-language/).
+
+[Why Memory safety is important](https://alexgaynor.net/2019/aug/12/introduction-to-memory-unsafety-for-vps-of-engineering/)
+
+[Seriousness of NULL](https://www.lucidchart.com/techblog/2015/08/31/the-worst-mistake-of-computer-science/)
+
+[C++ Rules to follow in order to doesn't cause undefined behavior at runtime](https://wiki.sei.cmu.edu/confluence/display/cplusplus/DCL50-CPP.+Do+not+define+a+C-style+variadic+function). In case of rust,the compiler has your back i.e bugs are caught by the compiler.
