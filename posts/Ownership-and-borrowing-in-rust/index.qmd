@@ -190,7 +190,11 @@ Region-based or Scope based memory/resource management i.e the values created an
 
 Cyclone is a research programming language that introduces the concept of **linear types(Ownership, in the case of rust)** in a programming language. For more expressive capability linear types supports *sub-region types*,i.e borrowing. Rust inherits ideas from the cyclone including ownership, and borrowing. Linear and subtypes avoid the ***Spooky action at a distance***.That's why the order of calling function important.
 
-Generics is a way to reduce code duplication and provide better abstraction with static and dynamic dispatch. Normally generics in c++ are abstract over a type and const. But in rust, we have ***generic over lifetime***  or ***generic over sub-linear types***. These sophisticated implementations make rust have a steep learning curve than any other programming language that came to exist except for some advanced type system languages like Haskell. *Swift* also has a proposal for integrating ownership into the language to manage memory efficiently.
+Generics is a way to reduce code duplication and provide better abstraction with static and dynamic dispatch. Normally generics in c++ are abstract over a type and const. But in rust, we have ***generic over lifetime***  or ***generic over sub-linear types***. These sophisticated implementations make rust have a steep learning curve than any other programming language that came to exist except for some advanced type system languages like Haskell. 
+
+*Swift* also has a proposal for integrating ownership into the language to manage memory efficiently.
+
+**Project Verona**, a reasearch language that leverage the linear types and other methods to build reliable concurrent application for the cloud.
 
 **References**:
 
@@ -199,3 +203,5 @@ Generics is a way to reduce code duplication and provide better abstraction with
 [Cyclone](https://cyclone.thelanguage.org/wiki/)
 
 [Swift proposal for ownership](https://github.com/apple/swift/blob/main/docs/OwnershipManifesto.md)
+
+[Project Verona](https://www.microsoft.com/en-us/research/project/project-verona/)
