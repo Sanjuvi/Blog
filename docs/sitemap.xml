@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sanjuvi.github.io/Blog/about.html</loc>
-    <lastmod>2023-02-14T18:26:56.826Z</lastmod>
+    <lastmod>2023-02-28T10:44:50.240Z</lastmod>
   </url>
   <url>
     <loc>https://sanjuvi.github.io/Blog/index.html</loc>
-    <lastmod>2023-02-14T18:27:01.453Z</lastmod>
+    <lastmod>2023-02-28T10:45:22.398Z</lastmod>
   </url>
   <url>
     <loc>https://sanjuvi.github.io/Blog/posts/Memory-Unsafety/index.html</loc>
-    <lastmod>2023-02-14T18:27:06.564Z</lastmod>
+    <lastmod>2023-02-28T10:44:54.171Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sanjuvi.github.io/Blog/posts/Ownership-and-borrowing-in-rust/index.html</loc>
+    <lastmod>2023-02-28T10:44:55.860Z</lastmod>
   </url>
   <url>
     <loc>https://sanjuvi.github.io/Blog/posts/Rust-pl/index.html</loc>
-    <lastmod>2023-02-14T18:27:09.931Z</lastmod>
+    <lastmod>2023-02-28T10:44:58.979Z</lastmod>
   </url>
   <url>
     <loc>https://sanjuvi.github.io/Blog/posts/Zero-cost-abstraction/index.html</loc>
-    <lastmod>2023-02-14T18:27:11.872Z</lastmod>
+    <lastmod>2023-02-28T10:45:00.068Z</lastmod>
   </url>
 </urlset>

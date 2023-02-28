@@ -1,12 +1,18 @@
+git config --global user.name "Sanjuvi"
+git config --global user.email "sanjeevimani567@gmail.com"
+
 git init #To consider as a git repositary
 git add . #To add everything in current directory
 git commit -m "Initial Commit"
 git push Directory_Name 
 
-quarto render
+
 quarto preview # checking locally without publishing to Github.
+quarto render # to create a docs dir to publish.
+
 
 **bold text**
 - doted list
 []()
 *Italic*
+>
